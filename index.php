@@ -7,22 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投票中心</title>
     <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/front.css">
 </head>
 
 <body>
     <div id="header">
         <?php
         include "./layout/header.php";
-        include "./layout/front_nav.php"
+        include "./layout/front_nav.php";
         ?>
     </div>
     <div id="container">
-haha
+        haha
     </div>
     <div>
-         <?php
-            include "./layout/footer.php";
-            ?>
+        <?php
+        include "./layout/footer.php";
+        ?>
     </div>
 
 </body>

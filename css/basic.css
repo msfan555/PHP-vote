@@ -39,3 +39,19 @@ footer {
     background: black;
     color: wheat;
 }
+
+/* common components */
+
+.btn{
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: gray;
+    padding: 0.25rem 0.75rem;
+    font-size: 1.1rem;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.btn.btn-primary{
+    background-color: aqua;
+}

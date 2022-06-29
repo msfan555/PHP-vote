@@ -18,7 +18,22 @@
         ?>
     </div>
     <div id="container">
-        hehe
+        <?php
+        if (isset($_GET['do'])) {
+            $file = "./back/" . $_GET['do'] . ".php";
+        }
+        if (isset($file) && file_exists(($file))) {
+            include $file; //得到檔案路徑的字串，來載入檔案
+        } else {
+        ?>
+            <!-- 用do把新增投票頁面導到container裏面 -->
+            <button class="btn btn-primary" onclick="location.href='?do=add_vote'">新增投票</button>
+            <div>投票列表</div>
+        <?php
+        }
+
+        ?>
+
     </div>
     <div>
         <?php

@@ -1,3 +1,8 @@
+<?php
+include_once "./api/base.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投票管理中心</title>
     <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css/back.css">
+    <link rel="stylesheet" href="./css//back.css">
 </head>
 
 <body>
@@ -28,7 +33,18 @@
         ?>
             <!-- 用do把新增投票頁面導到container裏面 -->
             <button class="btn btn-primary" onclick="location.href='?do=add_vote'">新增投票</button>
-            <div>投票列表</div>
+            <div>
+                <ul>
+                    <?php
+                    $subjects = all('subjects');
+                    foreach ($subjects as $subject) {
+                        echo "<li class='list-items'>";
+                        echo $subject['subject'];
+                        echo "</li>";
+                    }
+                    ?>
+                </ul>
+            </div>
         <?php
         }
 

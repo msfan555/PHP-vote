@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 06 月 26 日 13:47
+-- 產生時間： 2022 年 06 月 29 日 15:09
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` int(11) NOT NULL COMMENT '序號',
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `acc` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
   `pw` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -41,10 +41,10 @@ CREATE TABLE `admins` (
 --
 
 CREATE TABLE `log` (
-  `id` int(11) NOT NULL COMMENT '序號',
-  `user_id` int(11) NOT NULL COMMENT '投票者',
-  `sunject_id` int(11) NOT NULL,
-  `option_id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
+  `user_id` int(11) UNSIGNED NOT NULL COMMENT '投票者',
+  `sunject_id` int(11) UNSIGNED NOT NULL,
+  `option_id` int(11) UNSIGNED NOT NULL,
   `vote_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -55,10 +55,10 @@ CREATE TABLE `log` (
 --
 
 CREATE TABLE `options` (
-  `id` int(11) NOT NULL COMMENT '序號',
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `option` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '選項描述',
-  `subject_id` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `subject_id` int(11) UNSIGNED NOT NULL,
+  `total` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -68,15 +68,23 @@ CREATE TABLE `options` (
 --
 
 CREATE TABLE `subjects` (
-  `id` int(11) NOT NULL COMMENT '序號',
-  `subjects` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主題描述',
-  `type_id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
+  `subject` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '主題描述',
+  `type_id` int(11) UNSIGNED NOT NULL,
   `multiple` tinyint(1) NOT NULL DEFAULT 0 COMMENT '單/複選',
   `multi_limit` tinyint(2) NOT NULL DEFAULT 1 COMMENT '單/複選項目數',
   `start` date NOT NULL,
   `end` date NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
+(1, '貓派vs狗派', 1, 0, 1, '2022-06-29', '2022-07-09', 0),
+(2, '貓派vs狗派', 1, 0, 1, '2022-06-29', '2022-07-09', 0);
 
 -- --------------------------------------------------------
 
@@ -85,7 +93,7 @@ CREATE TABLE `subjects` (
 --
 
 CREATE TABLE `types` (
-  `id` int(11) NOT NULL COMMENT '序號',
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '分類名稱'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -96,12 +104,12 @@ CREATE TABLE `types` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL COMMENT '序號',
+  `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `acc` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
   `pw` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
-  `gender` tinyint(1) NOT NULL,
+  `gender` tinyint(1) UNSIGNED NOT NULL,
   `addr` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `reg_date` date NOT NULL
@@ -155,37 +163,37 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

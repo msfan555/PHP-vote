@@ -13,6 +13,8 @@ $subject = find('subjects', $subject_id);
 
 $subject['subject'] = $new_subject;
 
+$subject['multiple']=$_POST['multiple'];
+
 
 save('subjects', $subject);
 

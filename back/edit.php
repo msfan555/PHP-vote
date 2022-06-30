@@ -27,6 +27,12 @@ $opts=all('options',['subject_id'=>$id]);
         <input type="button" value="新增選項" onclick="addOpt()">
         <input type="hidden" name="subject_id" value="<?=$subjs['id'];?>">
     </div>
+    <div id="selector">
+        <input type="radio" name="multiple" value="0" <?=($subjs['multiple']==0)?'checked':'';?>>
+        <label>單選</label>
+        <input type="radio" name="multiple" value="1" <?=($subjs['multiple']==1)?'checked':'';?>>
+        <label>複選</label>
+    </div>
     <div id="options">
         <?php
         foreach($opts as $opt){

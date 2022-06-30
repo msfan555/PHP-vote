@@ -3,11 +3,14 @@
 <?php
 include_once "base.php";
 
+// dd($_POST);
+
 $subject = $_POST['subject'];
 $add_subject = [
     //只需要輸入當初設定時沒有預設值的欄位
     'subject' => $subject,
     'type_id' => 1,
+    'multiple'=>$_POST['multiple'],
     'start' => date("Y-m-d"),
     'end' => date("Y-m-d", strtotime("+10 days"))
 ];

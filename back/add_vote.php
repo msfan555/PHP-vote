@@ -7,6 +7,12 @@
         <!-- label的for對應input的id 所以都要設成subject -->
         <input type="button" value="新增選項" onclick="addOpt()">
     </div>
+    <div id="selector">
+        <input type="radio" name="multiple" value="0" checked>
+        <label>單選</label>
+        <input type="radio" name="multiple" value="1">
+        <label>複選</label>
+    </div>
     <div id="options">
         <label>選項</label><input type="text" name="option[]">
         <!-- 同一個name但是有多筆資料的時候，option+[]使其變成陣列 -->

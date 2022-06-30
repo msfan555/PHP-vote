@@ -10,7 +10,6 @@
     <div id="options">
         <label>選項</label><input type="text" name="option[]">
         <!-- 同一個name但是有多筆資料的時候，option+[]使其變成陣列 -->
-        <input type="reset" value="刪除">
     </div>
     <input type="submit" value="新增">
 
@@ -18,8 +17,7 @@
 
 <script>
     function addOpt(){
-        let opt=`<div><label>選項</label><input type="text" name="option[]">
-        <input type="reset" value="刪除"></div>`;
+        let opt=`<div><label>選項</label><input type="text" name="option[]">`;
         let opts=document.getElementById('options').innerHTML;
         opts=opts+opt;
         document.getElementById('options').innerHTML=opts;

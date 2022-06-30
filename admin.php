@@ -12,7 +12,7 @@ include_once "./api/base.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投票管理中心</title>
     <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css//back.css">
+    <link rel="stylesheet" href="./css/back.css">
 </head>
 
 <body>
@@ -40,6 +40,8 @@ include_once "./api/base.php";
                     foreach ($subjects as $subject) {
                         echo "<li class='list-items'>";
                         echo $subject['subject'];
+                        echo "<a class='edit' href='?do=edit&id={$subject['id']}'>編輯</a>";
+                        echo "<a class='delete' href='?do=delete&id={$subject['id']}'>刪除</a>";
                         echo "</li>";
                     }
                     ?>

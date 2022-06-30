@@ -29,3 +29,33 @@ ul{
     background-color: lightblue;
     cursor:pointer
 }
+
+.edit{
+    display: inline-block;
+    padding: 3px 12px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background: lightsalmon;
+    box-shadow: 3px 3px 10px #aaa;
+    margin: 0 5px;
+}
+
+.delete{
+    display: inline-block;
+    padding: 3px 12px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background: rgb(195, 29, 29);
+    box-shadow: 3px 3px 10px #aaa;
+    margin: 0 5px;
+}
+
+.edit:hover{
+    color:wheat;
+    background: rgb(255, 179, 149);
+}
+
+.delete:hover{
+    color:wheat;
+    background: rgb(238, 95, 95);
+}

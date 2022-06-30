@@ -40,7 +40,7 @@ ul{
     margin: 0 5px;
 }
 
-.delete{
+.dele{
     display: inline-block;
     padding: 3px 12px;
     border: 1px solid #ccc;
@@ -55,7 +55,7 @@ ul{
     background: rgb(255, 179, 149);
 }
 
-.delete:hover{
+.dele:hover{
     color:wheat;
     background: rgb(238, 95, 95);
 }

@@ -1,3 +1,3 @@
 <footer>
-    <div class="right">投票中心版權所有</div>
+    <div class="right">Copyright©2022 by Fan.C</div>
 </footer>

@@ -10,7 +10,7 @@
         <?php
         $subjects = all('subjects');
         foreach ($subjects as $subject) {
-            echo "<a href='?do=vote&id={$subject['id']}'>";
+            echo "<a href='?do=vote_result&id={$subject['id']}'>";
             echo "<li class='list-items'>";
             echo "<div>{$subject['subject']}</div>";
             if ($subject['multiple'] == 0) {

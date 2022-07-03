@@ -2,6 +2,20 @@
 <!-- 頁面 或 資料庫讀出資料 -->
 <form action="../vote/api/add_vote.php" method="post">
     <div>
+        <label for="types">選擇分類</label>
+        <select name="types" id="types">
+    <?php
+    $types=all("types");
+    foreach($types as $type){
+        echo "<option value='{$type['id']}'>";
+        echo $type['name'];
+        echo "</option>";
+    }
+    
+    ?>
+        </select>
+    </div>
+    <div>
         <label for="subject">投票主題</label>
         <input type="text" name="subject" id="subject">
         <!-- label的for對應input的id 所以都要設成subject -->
@@ -22,10 +36,10 @@
 </form>
 
 <script>
-    function addOpt(){
-        let opt=`<div><label>選項</label><input type="text" name="option[]">`;
-        let opts=document.getElementById('options').innerHTML;
-        opts=opts+opt;
-        document.getElementById('options').innerHTML=opts;
+    function addOpt() {
+        let opt = `<div><label>選項</label><input type="text" name="option[]">`;
+        let opts = document.getElementById('options').innerHTML;
+        opts = opts + opt;
+        document.getElementById('options').innerHTML = opts;
     }
 </script>

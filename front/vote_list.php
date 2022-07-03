@@ -1,14 +1,34 @@
 <?php
-$p="";
-if(isset($_GET['p'])){
-    $p="&p={$_GET['p']}";
+$p = "";
+if (isset($_GET['p'])) {
+    $p = "&p={$_GET['p']}";
 }
-$queryStr="";
-if(isset($_GET['order'])){
-    $queryStr="&order={$_GET['order']}&type={$_GET['type']}";
+$queryStr = "";
+if (isset($_GET['order'])) {
+    $queryStr = "&order={$_GET['order']}&type={$_GET['type']}";
+}
+$queryFilter="";
+if (isset($_GET['filter'])) {
+    $queryFilter = "&filter={$_GET['filter']}";
 }
 
 ?>
+<div>
+    <label for="types">分類</label>
+    <select name="types" id="types" onchange="location.href=`?filter=${this.value}<?=$p;?><?=$queryStr;?>`">
+        <option value="0">全部</option>
+        <?php
+        $types = all("types");
+        foreach ($types as $type) {
+            $selected=(isset($_GET['filter']) && $_GET['filter']==$type['id'])?'selected':'';
+            echo "<option value='{$type['id']}' $selected>";
+            echo $type['name'];
+            echo "</option>";
+        }
+
+        ?>
+    </select>
+</div>
 
 
 <div>
@@ -21,11 +41,11 @@ if(isset($_GET['order'])){
             // asc大到小排序 desc小到大排序
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=multiple&type=desc<?=$p;?>">單/複選</a></div>
+                <div><a href="?order=multiple&type=desc<?= $p; ?><?=$queryFilter;?>">單/複選</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=multiple&type=asc<?=$p;?>">單/複選</a></div>
+                <div><a href="?order=multiple&type=asc<?= $p;?><?=$queryFilter;?>">單/複選</a></div>
             <?php
             }
             ?>
@@ -34,11 +54,11 @@ if(isset($_GET['order'])){
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=end&type=desc<?=$p;?>">投票期間</a></div>
+                <div><a href="?order=end&type=desc<?= $p; ?><?=$queryFilter;?>">投票期間</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=end&type=asc<?=$p;?>">投票期間</a></div>
+                <div><a href="?order=end&type=asc<?= $p; ?><?=$queryFilter;?>">投票期間</a></div>
             <?php
             }
             ?>
@@ -47,11 +67,11 @@ if(isset($_GET['order'])){
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=remain&type=desc<?=$p;?>">剩餘天數</a></div>
+                <div><a href="?order=remain&type=desc<?= $p;?><?=$queryFilter;?>">剩餘天數</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=remain&type=asc<?=$p;?>">剩餘天數</a></div>
+                <div><a href="?order=remain&type=asc<?= $p;?><?=$queryFilter;?>">剩餘天數</a></div>
             <?php
             }
             ?>
@@ -60,11 +80,11 @@ if(isset($_GET['order'])){
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=total&type=desc<?=$p;?>">投票人數</a></div>
+                <div><a href="?order=total&type=desc<?= $p;?><?=$queryFilter;?>">投票人數</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=total&type=asc<?=$p;?>">投票人數</a></div>
+                <div><a href="?order=total&type=asc<?= $p; ?><?=$queryFilter;?>">投票人數</a></div>
             <?php
             }
             ?>
@@ -85,17 +105,24 @@ if(isset($_GET['order'])){
                 $orderStr = " ORDER BY `{$_SESSION['order']['col']}` {$_SESSION['order']['type']}"; //預設排序
             }
         }
+
+        $filter = [];
+        if (isset($_GET['filter'])) {
+            if(!$_GET['filter']==0){
+                $filter = ['type_id' => $_GET['filter']];
+               }
+        }
+
         // 建立分頁所需的變數群
-        $total = math('subjects', 'count', 'id');
-        $div=3;
-        $pages=ceil($total/$div);
-        $now=isset($_GET['p'])?$_GET['p']:1;
-        $start=($now-1)*$div;
-        $page_rows=" limit $start,$div";
+        $total = math('subjects', 'count', 'id', $filter);
+        $div = 3;
+        $pages = ceil($total / $div);
+        $now = isset($_GET['p']) ? $_GET['p'] : 1;
+        $start = ($now - 1) * $div;
+        $page_rows = " limit $start,$div";
         // echo $total;
 
-
-        $subjects = all('subjects', $orderStr . $page_rows);
+        $subjects = all('subjects', $filter, $orderStr . $page_rows);
         foreach ($subjects as $subject) {
             echo "<a href='?do=vote_result&id={$subject['id']}'>";
             echo "<li class='list-items'>";
@@ -126,13 +153,15 @@ if(isset($_GET['order'])){
         ?>
     </ul>
     <div class="text-center">
-    <?php
-    for($i=1;$i<=$pages;$i++){
-        echo "<a href='?p={$i}{$queryStr}'>&nbsp;";
-        echo $i;
-        echo "&nbsp;</a>";
-    }
-    ?>
+        <?php
+        if ($pages > 1) {
+            for ($i = 1; $i <= $pages; $i++) {
+                echo "<a href='?p={$i}{$queryStr}{$queryFilter}'>&nbsp;";
+                echo $i;
+                echo "&nbsp;</a>";
+            }
+        }
+        ?>
 
     </div>
 

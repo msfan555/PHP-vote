@@ -1,3 +1,16 @@
+<?php
+$p="";
+if(isset($_GET['p'])){
+    $p="&p={$_GET['p']}";
+}
+$queryStr="";
+if(isset($_GET['order'])){
+    $queryStr="&order={$_GET['order']}&type={$_GET['type']}";
+}
+
+?>
+
+
 <div>
     <ul class="list">
         <li class="list-header">
@@ -8,11 +21,11 @@
             // asc大到小排序 desc小到大排序
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=multiple&type=desc">單/複選</a></div>
+                <div><a href="?order=multiple&type=desc<?=$p;?>">單/複選</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=multiple&type=asc">單/複選</a></div>
+                <div><a href="?order=multiple&type=asc<?=$p;?>">單/複選</a></div>
             <?php
             }
             ?>
@@ -21,11 +34,11 @@
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=end&type=desc">投票期間</a></div>
+                <div><a href="?order=end&type=desc<?=$p;?>">投票期間</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=end&type=asc">投票期間</a></div>
+                <div><a href="?order=end&type=asc<?=$p;?>">投票期間</a></div>
             <?php
             }
             ?>
@@ -34,11 +47,11 @@
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=remain&type=desc">剩餘天數</a></div>
+                <div><a href="?order=remain&type=desc<?=$p;?>">剩餘天數</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=remain&type=asc">剩餘天數</a></div>
+                <div><a href="?order=remain&type=asc<?=$p;?>">剩餘天數</a></div>
             <?php
             }
             ?>
@@ -47,11 +60,11 @@
             <?php
             if (isset($_GET['type']) && $_GET['type'] == 'asc') {
             ?>
-                <div><a href="?order=total&type=desc">投票人數</a></div>
+                <div><a href="?order=total&type=desc<?=$p;?>">投票人數</a></div>
             <?php
             } else {
             ?>
-                <div><a href="?order=total&type=asc">投票人數</a></div>
+                <div><a href="?order=total&type=asc<?=$p;?>">投票人數</a></div>
             <?php
             }
             ?>
@@ -115,7 +128,7 @@
     <div class="text-center">
     <?php
     for($i=1;$i<=$pages;$i++){
-        echo "<a href='?p={$i}&{$orderStr}'>&nbsp;";
+        echo "<a href='?p={$i}{$queryStr}'>&nbsp;";
         echo $i;
         echo "&nbsp;</a>";
     }

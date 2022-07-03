@@ -20,6 +20,10 @@ ul{
     color: wheat;
 }
 
+.list-header div a{
+    color: wheat;
+}
+
 .list-items{
     display: flex;
     justify-content: space-evenly;
@@ -42,4 +46,14 @@ ul{
 .list-items:hover{
     background-color: lightblue;
     cursor:pointer
+}
+
+.result-table{
+    border-collapse: collapse;
+    box-shadow: 0 0 6px #bbb;
+}
+
+.result-table td{
+padding: 0.25rem;
+border: 1px solid #ccc;
 }

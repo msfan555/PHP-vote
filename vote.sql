@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 06 月 29 日 15:09
+-- 產生時間： 2022 年 07 月 03 日 11:00
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -37,16 +37,39 @@ CREATE TABLE `admins` (
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `log`
+-- 資料表結構 `logs`
 --
 
-CREATE TABLE `log` (
+CREATE TABLE `logs` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `user_id` int(11) UNSIGNED NOT NULL COMMENT '投票者',
-  `sunject_id` int(11) UNSIGNED NOT NULL,
+  `subject_id` int(11) UNSIGNED NOT NULL,
   `option_id` int(11) UNSIGNED NOT NULL,
   `vote_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `logs`
+--
+
+INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VALUES
+(1, 0, 3, 10, '2022-07-01 03:16:07'),
+(2, 0, 2, 7, '2022-07-01 03:16:17'),
+(3, 0, 2, 6, '2022-07-01 05:01:12'),
+(4, 0, 2, 6, '2022-07-01 05:06:27'),
+(5, 0, 3, 12, '2022-07-02 07:14:13'),
+(6, 0, 4, 14, '2022-07-02 07:14:24'),
+(7, 0, 4, 14, '2022-07-02 07:14:31'),
+(8, 0, 4, 15, '2022-07-02 07:14:31'),
+(9, 0, 3, 11, '2022-07-02 07:29:22'),
+(10, 0, 4, 14, '2022-07-02 09:03:58'),
+(11, 0, 4, 15, '2022-07-02 09:03:58'),
+(12, 0, 11, 36, '2022-07-02 09:05:25'),
+(13, 0, 11, 36, '2022-07-02 09:05:38'),
+(14, 0, 11, 37, '2022-07-02 09:05:38'),
+(15, 0, 11, 37, '2022-07-02 09:17:36'),
+(16, 0, 11, 36, '2022-07-02 09:18:04'),
+(17, 0, 11, 37, '2022-07-02 09:18:04');
 
 -- --------------------------------------------------------
 
@@ -60,6 +83,33 @@ CREATE TABLE `options` (
   `subject_id` int(11) UNSIGNED NOT NULL,
   `total` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `options`
+--
+
+INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
+(1, '貓貓最高', 1, 4),
+(2, '狗狗最可愛', 1, 0),
+(3, '小孩子才做選擇', 1, 1),
+(4, '動物先不要', 1, 0),
+(5, '逛市集買東西吃東西', 2, 0),
+(6, '百岳爬起來', 2, 2),
+(7, '上班那麼累，當然在家躺', 2, 1),
+(8, '海邊曬肉～～～', 2, 0),
+(9, '日本撒錢爆買', 3, 0),
+(10, '回香港吃手撕雞腸粉', 3, 2),
+(11, '朝聖之路走到腳爛掉', 3, 1),
+(12, '做夢比較快到', 3, 1),
+(13, '美咖耍美', 2, 0),
+(36, 'BL', 11, 3),
+(37, '百合', 11, 3),
+(41, '殺鬼主題的動畫', 13, 0),
+(42, '殭屍主題的展覽', 13, 0),
+(43, '蕃茄薯仔湯', 14, 0),
+(44, '魷魚肉餅', 14, 0),
+(45, '哈哈哈蝦蝦蝦', 14, 0),
+(46, '西洋菜排骨湯', 14, 0);
 
 -- --------------------------------------------------------
 
@@ -83,8 +133,12 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '貓派vs狗派', 1, 0, 1, '2022-06-29', '2022-07-09', 0),
-(2, '貓派vs狗派', 1, 0, 1, '2022-06-29', '2022-07-09', 0);
+(1, '貓派vs狗派', 5, 0, 1, '2022-06-30', '2022-07-10', 5),
+(2, '週末要幹嘛呀？', 6, 0, 1, '2022-06-30', '2022-07-10', 3),
+(3, '解封要去哪裡玩？', 6, 0, 1, '2022-06-30', '2022-07-05', 4),
+(11, '嘎嘎嗚拉拉', 1, 1, 1, '2022-07-02', '2022-07-12', 4),
+(13, '哪一個比較會教壞小孩？', 7, 0, 1, '2022-07-03', '2022-07-13', 0),
+(14, '最鍾意的料理', 6, 1, 1, '2022-07-03', '2022-07-13', 0);
 
 -- --------------------------------------------------------
 
@@ -96,6 +150,15 @@ CREATE TABLE `types` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '分類名稱'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `types`
+--
+
+INSERT INTO `types` (`id`, `name`) VALUES
+(5, '動物'),
+(6, '生活'),
+(7, '究極の選擇');
 
 -- --------------------------------------------------------
 
@@ -126,9 +189,9 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- 資料表索引 `log`
+-- 資料表索引 `logs`
 --
-ALTER TABLE `log`
+ALTER TABLE `logs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -166,28 +229,28 @@ ALTER TABLE `admins`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `log`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
-ALTER TABLE `log`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
+ALTER TABLE `logs`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=18;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=47;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=15;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=8;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`

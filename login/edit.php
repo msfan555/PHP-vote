@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>密碼</td>
-                    <td><input type="password" name="pw" value="<?= $user['pw']; ?>"></td>
+                    <td><input type="password" name="pw" value=""<?= $user['pw']; ?>></td>
                 </tr>
                 <tr>
                     <td>姓名</td>
@@ -64,15 +64,16 @@
                     </select>
                 </td>
                 </tr>
+                <tr>
+                    <td>email</td>
+                    <td><input type="email" name="email" value="<?= $user['email']; ?>"></td>
+                </tr>
             </table>
-            <tr>
-                <td>email</td>
-                <td><input type="email" name="email" value="<?= $user['email']; ?>"></td>
-            </tr>
-            <div>
-                <input type="hidden" name="id" value="<?= $_POST['id']; ?>">
-                <input type="submit" class="logbtn" value="送出">
-            </div>
+                <div>
+                    <input type="hidden" name="id" value="<?= $_POST['id']; ?>"> 
+                    <input type="submit" value="送出">
+                    <input type="reset" value="重置">
+                </div>
         </form>
     </div>
     <div>

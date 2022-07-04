@@ -1,6 +1,8 @@
 <?php
-include_once "./api/base.php";
+include "./api/base.php"; //連接資料庫
 
+$sql = "SELECT * FROM `users` WHERE acc='{$_SESSION['user']}'";
+$user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,7 @@ include_once "./api/base.php";
         ?>
     </div>
     <div id="container">
+    <h2>嗨 <?= $_SESSION['user'];?>！ 歡迎回來</h2>
         <?php
         if (isset($_GET['do'])) {
             $file = "./back/" . $_GET['do'] . ".php";

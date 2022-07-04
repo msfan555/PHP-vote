@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td><a href="register.php">尚未註冊</a></td>
-                <td><a href="forgot.php">忘記密碼</a></td>
+                <td><a href="forget.php">忘記密碼</a></td>
             </tr>
         </table>
         <div class="btns">

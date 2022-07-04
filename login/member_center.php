@@ -21,7 +21,7 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
     <div id="header">
         <?php
         include "../layout/header.php";
-        include "../layout/mem_cen_nav.php";
+        include "../layout/mem_nav.php";
         ?>
     </div>
     <div id="container">
@@ -40,6 +40,9 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         include "../layout/footer.php";
         ?>
     </div>
+
+
+
 
 </body>
 

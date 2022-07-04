@@ -45,21 +45,22 @@
                 </tr>
                 <tr>
                     <td>性別</td>
-                    <td><input type="radio" name="gender" id="gender" value="<?= $user['gender']; ?>">女性</td>
-                    <td><input type="radio" name="gender" id="gender" value="<?= $user['gender']; ?>">男性</td>
+                    <td><input type="radio" name="gender" id="gender" value="0" <?= ($user['gender'] == 0) ? 'checked' : ''; ?>>女性</td>
+                    <td><input type="radio" name="gender" id="gender" value="1" <?= ($user['gender'] == 1) ? 'checked' : ''; ?>>男性</td>
                 </tr>
                 <tr>
                     <td>地址</td>
                     <td><input type="text" name="addr" value="<?= $user['addr']; ?>"></td>
                 </tr>
-                <td>教育程度</td>
+                <td><label for="education">教育程度</label></td>
                 <td>
                     <select name="education" id="education">
-                        <option value="<?= $user['education']; ?>">小學</option>
-                        <option value="<?= $user['education']; ?>">中學</option>
-                        <option value="<?= $user['education']; ?>">高中</option>
-                        <option value="<?= $user['education']; ?>">大學</option>
-                        <option value="<?= $user['education']; ?>">研究所</option>
+                        <option value="1"<?= ($user['education'] == 1) ? 'selected' : ''; ?>>小學</option>
+                        <option value="2"<?= ($user['education'] == 2) ? 'selected' : ''; ?>>中學</option>
+                        <option value="3"<?= ($user['education'] == 3) ? 'selected' : ''; ?>>高中</option>
+                        <option value="4"<?= ($user['education'] == 4) ? 'selected' : ''; ?>>大學</option>
+                        <option value="5"<?= ($user['education'] == 5) ? 'selected' : ''; ?>>研究所</option>
+
                     </select>
                 </td>
                 </tr>

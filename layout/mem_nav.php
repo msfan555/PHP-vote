@@ -3,5 +3,5 @@
 <a href="../back/add_vote.php">新增投票</a>
 <a href="../back/admin_type.php">分類管理</a>
 <a href="../login/member_center.php">會員中心</a>
-<a href="./index.php">登出</a>
+<a href="../login/logout.php">登出</a>
 </nav>

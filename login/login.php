@@ -8,16 +8,27 @@
     <title>會員登入</title>
     <style>
         .login-box {
-            /* width: 30px; */
-            padding: 20% 5%;
+            width: 360px;
+            padding: 8% 0 0;
             margin: auto;
         }
 
-        .error{
+        h2 {
+            text-align: center;
+            color: gray;
+            margin: 2.2rem;
+        }
+
+        .error {
             text-align: center;
             color: #bd3d3a;
             margin: 1rem;
             margin-top: 0;
+        }
+
+        label {
+            color: gray;
+            font-weight: bold;
         }
 
         .login-box .user-box input {
@@ -27,25 +38,19 @@
             width: 100%;
             border: 0;
             margin: 0 0 15px;
-            padding: 15px;
+            padding: 13px;
             box-sizing: border-box;
             font-size: 14px;
         }
 
-        .reg-link {
-            text-align: left;
-            margin: 0.6rem;
-            padding: 0 0.5rem;
-        }
-
-        .reg-link{
+        .login-link {
             text-align: center;
             margin: 0.6rem;
             display: flex;
             justify-content: space-around;
         }
 
-        .loginLink {
+        .loginA {
             text-decoration: none;
             color: gray;
             /* margin: .5rem; */
@@ -59,7 +64,7 @@
             background: #4CAF50;
             width: 100%;
             border: 0;
-            padding: 15px;
+            padding: 12px;
             color: #FFFFFF;
             font-size: 18px;
             -webkit-transition: all 0.3 ease;
@@ -71,27 +76,30 @@
 
 <body>
     <div class="login-box">
+        <h2>會員登入</h2>
         <!-- <h1 style="text-align:center">Log In</h1> -->
         <?php
         if (isset($_GET['error'])) {
             echo "<h3 class=error>{$_GET['error']}</h3>";
         }
         ?>
-        <form action="../vote/login/chk_login.php" method="post">
+        <form action="chk_login.php" method="post">
             <div class="user-box">
-                <input type="text" name="acc" placeholder="帳號">
+                <label for="acc">帳號</label>
+                <input type="text" name="acc">
             </div>
             <div class="user-box">
-                <input type="password" name="pw" placeholder="密碼">
+                <label for="acc">密碼</label>
+                <input type="password" name="pw">
             </div>
 
             <div>
                 <button class="btn">登入</button>
             </div>
 
-            <div class="reg-link">
-                <a class="loginLink" href="../vote/login/register.php">建立帳戶</a>
-                <a class="loginLink" href="../vote/login/forget.php">忘記密碼</a>
+            <div class="login-link">
+                <a class="loginA" href="register.php">建立帳戶</a>
+                <a class="loginA" href="forget.php">忘記密碼</a>
             </div>
 
         </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 07 月 03 日 11:00
+-- 產生時間： 2022 年 07 月 05 日 16:23
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -158,7 +158,8 @@ CREATE TABLE `types` (
 INSERT INTO `types` (`id`, `name`) VALUES
 (5, '動物'),
 (6, '生活'),
-(7, '究極の選擇');
+(7, '究極の選擇'),
+(8, '科技');
 
 -- --------------------------------------------------------
 
@@ -169,14 +170,24 @@ INSERT INTO `types` (`id`, `name`) VALUES
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL COMMENT '序號',
   `acc` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
-  `pw` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pw` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `gender` tinyint(1) UNSIGNED NOT NULL,
   `addr` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_date` date NOT NULL
+  `email` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `users`
+--
+
+INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `email`) VALUES
+(10, 'fan', '202cb962ac59075b964b07152d234b70', 'fanChiang', '2022-07-03', 0, 'fff', '3', 'ggggg@fff.com'),
+(11, 'luis', '202cb962ac59075b964b07152d234b70', 'luisk', '2022-07-04', 1, 'hk', '3', 'fff@fff.com'),
+(12, 'fanfan', '202cb962ac59075b964b07152d234b70', 'fan', '2022-07-04', 0, 'fff', '0', 'fff@fff.com'),
+(13, 'klose', '202cb962ac59075b964b07152d234b70', 'klose', '2022-07-05', 0, '', '3', 'fff@fff.com');
 
 --
 -- 已傾印資料表的索引
@@ -244,19 +255,19 @@ ALTER TABLE `options`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=16;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號';
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

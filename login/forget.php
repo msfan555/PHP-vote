@@ -1,26 +1,116 @@
-<div>
-    <h2>更新密碼</h2>
-    <?php
-    if(isset($_GET['error'])){
-        echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
-    }
-    ?>
-    <form action="./chk_acc.php" method="post">
-    
-        <label style="color: #a6c0fe; font-size: 20px; font-weight: 900;">請輸入您的帳號</label>
-        <input type="text" name="acc"><br>
-        <label style="color: #a6c0fe; font-size: 20px; font-weight: 900;">請輸入您的email</label>
-        <input type="email" name="email"><br>
-        <label style="color: #a6c0fe; font-size: 19px; font-weight: 900;">請輸入新的密碼</label>
-        <input type="password" name="pw"><br>
-        <br>
-        <!-- <input type="submit" value="檢查"> -->
-        <div>
-            <button class="but" onclick="location.href='./chk_acc.php'">送出</button>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入</title>
+    <style>
+        .reset-box {
+            width: 360px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: gray;
+            margin: 2.2rem;
+        }
+
+        .error {
+            text-align: center;
+            color: #bd3d3a;
+            margin: 1rem;
+            margin-top: 0;
+        }
+
+        label {
+            color: gray;
+            font-weight: bold;
+        }
+
+        .reset-box .reset-data input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 13px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+
+        .btns {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .send {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 35%;
+            border: 0;
+            padding: 12px;
+            color: #FFFFFF;
+            font-size: 18px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+
+        .back {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #C3D825;
+            width: 35%;
+            border: 0;
+            padding: 12px;
+            color: #FFFFFF;
+            font-size: 18px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="reset-box">
+            <h2>更新密碼</h2>
+            <?php
+            if (isset($_GET['error'])) {
+                echo "<h3 class='error'>{$_GET['error']}</h3>";
+            }
+            ?>
+            <form action="./chk_acc.php" method="post">
+                <div class="reset-data">
+                    <label for="acc">請輸入您的帳號</label>
+                    <input type="text" name="acc" id="acc">
+                </div>
+                <div class="reset-data">
+                    <label for="email">請輸入您的email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="reset-data">
+                    <label for="pw">請輸入新的密碼</label>
+                    <input type="password" name="pw" id="pw">
+                </div>
+                <div class="btns">
+                    <button class="send" onclick="location.href='./chk_acc.php'">送出</button>
+                    <button class="back" onclick="location.href='login.php'">回首頁</button>
+                </div>
+            </form>
         </div>
-        
-        <div>
-        <button type="button" onclick="location.href='login.php'">回首頁</button>
-        </div>
-    </form>
-</div>
+    </div>
+
+</body>
+
+</html>

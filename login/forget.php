@@ -62,6 +62,8 @@
             -webkit-transition: all 0.3 ease;
             transition: all 0.3 ease;
             cursor: pointer;
+            text-align: center;
+            text-decoration: none;
         }
 
         .back {
@@ -77,6 +79,8 @@
             -webkit-transition: all 0.3 ease;
             transition: all 0.3 ease;
             cursor: pointer;
+            text-align: center;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -104,8 +108,8 @@
                     <input type="password" name="pw" id="pw">
                 </div>
                 <div class="btns">
-                    <button class="send" onclick="location.href='./chk_acc.php'">送出</button>
-                    <button class="back" onclick="location.href='login.php'">回首頁</button>
+                    <a class="send" href='chk_acc.php'>送出</a>
+                    <a class="back" href='../index.php'>回首頁</a>
                 </div>
             </form>
         </div>

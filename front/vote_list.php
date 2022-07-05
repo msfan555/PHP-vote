@@ -115,7 +115,7 @@ if (isset($_GET['filter'])) {
 
         // 建立分頁所需的變數群
         $total = math('subjects', 'count', 'id', $filter);
-        $div = 3;
+        $div = 5;
         $pages = ceil($total / $div);
         $now = isset($_GET['p']) ? $_GET['p'] : 1;
         $start = ($now - 1) * $div;
@@ -156,7 +156,7 @@ if (isset($_GET['filter'])) {
         <?php
         if ($pages > 1) {
             for ($i = 1; $i <= $pages; $i++) {
-                echo "<a href='?p={$i}{$queryStr}{$queryFilter}'>&nbsp;";
+                echo "<a class='page' href='?p={$i}{$queryStr}{$queryFilter}'>&nbsp;";
                 echo $i;
                 echo "&nbsp;</a>";
             }

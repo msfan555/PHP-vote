@@ -1,58 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <style>
-        h1{
-            text-align: center;
-        }
-        table{
-            width: 400px;
+        .login-box {
+            /* width: 30px; */
+            padding: 20% 5%;
             margin: auto;
         }
-        table td{
-            padding: 1rem;
-        }
-        .btns{
+
+        .error{
             text-align: center;
+            color: #bd3d3a;
+            margin: 1rem;
+            margin-top: 0;
+        }
+
+        .login-box .user-box input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .reg-link {
+            text-align: left;
+            margin: 0.6rem;
+            padding: 0 0.5rem;
+        }
+
+        .reg-link{
+            text-align: center;
+            margin: 0.6rem;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .loginLink {
+            text-decoration: none;
+            color: gray;
+            /* margin: .5rem; */
+
+        }
+
+        .btn {
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #4CAF50;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 18px;
+            -webkit-transition: all 0.3 ease;
+            transition: all 0.3 ease;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
-    <h1 style="text-align:center">會員登入</h1>
-    <?php
-    if(isset($_GET['error'])){
-        echo "<h2 style='color:red;text-align:center'>{$_GET['error']}</h2>";
-    }
-    
-    ?>
-    <form action="chk_login.php" method="post">
-        <table>
-            <tr>
-                <td>帳號</td>
-                <td>
-                    <input type="text" name="acc">
-                </td>
-            </tr>
-            <tr>
-                <td>密碼</td>
-                <td>
-                    <input type="password" name="pw">
-                </td>
-            </tr>
-            <tr>
-                <td><a href="register.php">尚未註冊</a></td>
-                <td><a href="forget.php">忘記密碼</a></td>
-            </tr>
-        </table>
-        <div class="btns">
-            <input type="submit" value="登入">
-            <input type="reset" value="重置">
-        </div>
-    </form>
-    
+    <div class="login-box">
+        <!-- <h1 style="text-align:center">Log In</h1> -->
+        <?php
+        if (isset($_GET['error'])) {
+            echo "<h3 class=error>{$_GET['error']}</h3>";
+        }
+        ?>
+        <form action="../vote/login/chk_login.php" method="post">
+            <div class="user-box">
+                <input type="text" name="acc" placeholder="帳號">
+            </div>
+            <div class="user-box">
+                <input type="password" name="pw" placeholder="密碼">
+            </div>
+
+            <div>
+                <button class="btn">登入</button>
+            </div>
+
+            <div class="reg-link">
+                <a class="loginLink" href="../vote/login/register.php">建立帳戶</a>
+                <a class="loginLink" href="../vote/login/forget.php">忘記密碼</a>
+            </div>
+
+        </form>
+    </div>
+
 </body>
+
 </html>

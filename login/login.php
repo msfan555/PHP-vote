@@ -58,7 +58,6 @@
         }
 
         .btn {
-            font-family: "Roboto", sans-serif;
             text-transform: uppercase;
             outline: 0;
             background: #4CAF50;

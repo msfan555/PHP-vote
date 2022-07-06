@@ -6,43 +6,109 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* 整個header */
 #header {
     width: 100%;
-    height: 200px;
-    position: relative;
+    height: 150px;
+    top: 0px;
+    z-index: 1030;
 }
 
-/* #header .slider{
-    height: 100%;
-    background: blue;
-} */
-
-#header nav{
+/* header最上層 */
+#header .upper {
+    text-align: right;
     width: 100%;
     min-width: 1000px;
-    margin: auto;
-    background: lightcyan;
-    position:absolute;
-    bottom: 0;
+    height: 35%;
+    background-color: #0f2d3c;
     padding: 0 7.5%;
 }
 
+#header .upper div {
+    display: inline-block;
+    align-items: center;
+    margin: 0.9rem 0.2rem;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+#header .upper a {
+    margin: 0.2rem 0.2rem;
+    text-decoration: none;
+    color: #f9c78b;
+    font-weight: bold;
+}
+
+#header .upper a:hover {
+    /* text-decoration: underline; */
+    cursor: pointer;
+
+}
+
+#header .upper a:visited {
+    color: #f9c78b;
+}
+
+
+/* header第二層 */
+#header nav {
+    width: 100%;
+    min-width: 1000px;
+    height: 65%;
+    margin: auto;
+    background: #295970;
+    bottom: 0;
+    padding: 0 7.5%;
+    text-align: right;
+}
+
+#header nav div {
+    display: inline-block;
+    font-size: 20px;
+    margin: 2rem 0;
+    font-weight: 500;
+}
+
+#header nav div a {
+    color: #ffffff;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    padding: 0  1.2rem;
+}
+
+#header nav div a:hover {
+    /* text-decoration: underline; */
+    cursor: pointer;
+}
+
+#header nav div a:visited {
+color: #ffffff;
+}
+
+.bar{
+    border-right: 1px solid #f9c78b;
+}
+
+/* 中間主要內容 */
 #container {
     width: 85%;
     min-width: 1000px;
     margin: auto;
     min-height: calc(100vh - 300px - 2.5rem);
+    /* position: fixed; */
+    /* overflow: scroll; */
 }
 
 footer {
     text-align: center;
     width: 100%;
     height: 4rem;
-    background: black;
+    background: #413b37;
     padding: 1rem;
     font-size: 1.1rem;
-    font-weight: bold;
-    color: wheat;
+    font-weight: 300;
+    color: #ffffff;
     position: fixed;
     right: 0;
     bottom: 0;
@@ -52,7 +118,7 @@ footer {
 
 /* common components */
 
-.btn{
+/* .btn {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -60,20 +126,17 @@ footer {
     padding: 0.25rem 0.75rem;
     font-size: 1.1rem;
     box-shadow: 0 0 10px #ccc;
-}
+    margin: 1.2rem 1rem 0 1rem;
+} */
 
-.btn.btn-primary{
-    background-color: aqua;
-}
-
-.text-center{
+.text-center {
     text-align: center;
 }
 
-.text-left{
+.text-left {
     text-align: left;
 }
 
-.text-right{
+.text-right {
     text-align: right;
 }

@@ -20,22 +20,24 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
 <body>
     <div id="header">
         <?php
-        include "./layout/header.php";
-        include "./layout/back_nav.php";
+        include "./layout/admin_header.php";
         ?>
     </div>
     <div id="container">
-    <h2>嗨 <?= $_SESSION['user'];?>！ 歡迎回來</h2>
+    <!-- <h2>嗨 <?= $_SESSION['user'];?>！ 歡迎回來</h2> -->
         <?php
         if (isset($_GET['do'])) {
             $file = "./back/" . $_GET['do'] . ".php";
+            if(isset($_GET['list'])){
+                $file = "./front/" . $_GET['do'] . ".php";
+            }
         }
         if (isset($file) && file_exists(($file))) {
             include $file; //得到檔案路徑的字串，來載入檔案
         } else {
         ?>
             <!-- 用do把新增投票頁面導到container裏面 -->
-            <button class="btn btn-primary" onclick="location.href='?do=add_vote'">新增投票</button>
+            <button class="btn" onclick="location.href='?do=add_vote'">新增投票</button>
             <div>
                 <ul>
                     <li class="list-header">
@@ -67,7 +69,7 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
                                 $remain=floor(($end-$today)/(60*60*24));
                                 echo "投票倒數".$remain."天結束";
                              }else{
-                                echo "<span style='color:grey'>投票結束</span>";
+                                echo "<span style='color:#999'>投票結束</span>";
                              }
                         echo "</div>";
                         echo "<div class='text-center'>{$subject['total']}</div>";

@@ -17,8 +17,7 @@ include_once "./api/base.php";
 <body>
     <div id="header">
         <?php
-        include "./layout/header.php";
-        include "./layout/front_nav.php";
+        include "./layout/index_header.php";
         ?>
     </div>
     <div id="container">

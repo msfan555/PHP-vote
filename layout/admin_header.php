@@ -10,7 +10,7 @@
 <nav>
 
     <div>
-        <a class="bar" href="?do=vote_list">投票列表</a>
+        <a class="bar" href="../vote/index.php">投票列表</a>
     </div>
     <div>
         <a class="bar" href="?do=admin_vote">投票管理</a>

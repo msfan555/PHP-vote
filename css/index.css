@@ -1,7 +1,22 @@
 ul{
     margin: 1rem 0 1rem 0;
-
 }
+
+.type-box{
+    margin: 1.5rem 1rem 0 1.5rem;
+}
+
+.type-box label{
+    font-weight: bold;
+    color: #444;
+}
+.type-box option{
+    /* border-bottom: 3px solid #f9c78b; */
+    color: #444;
+    font-size: 18px;
+}
+
+/* 列表header */
 
 .list-header{
     display: flex;
@@ -12,17 +27,19 @@ ul{
 .list-header div{
     width: calc(100% / 5);
     padding: 0.5rem 1rem;
-    background-color: blue;
-    color: wheat;
+    background-color: #83668b;
+    color: #FFFFFF;
 }
 
 .list-header div a{
-    color: wheat;
+    color: #FFFFFF;
+    
 }
 
 .list-items{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     padding: 0.5rem;
     margin: 0.25rem 0;
     border-bottom: 1px solid #eee;
@@ -37,10 +54,11 @@ ul{
 .list-items div{
     width: calc(100% / 5);
     padding: 0.5rem 1rem;
+    color: #444;
 }
 
 .list-items:hover{
-    background-color: lightblue;
+    background-color: rgb(241, 228, 214);
     cursor:pointer
 }
 
@@ -64,10 +82,22 @@ margin: 0 0.5rem;
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
     border: 0;
-    border-bottom: 1px solid pink;
+    border-bottom: 1.3px solid #f9c78b;
+    color: #444;
+    font-weight: 400;
 
 }
 
 .page{
     text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+.page:hover{
+    font-size: 18px;
+}
+
+.page:visited{
+    color: #444;
 }

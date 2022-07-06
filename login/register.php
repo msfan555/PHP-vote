@@ -15,7 +15,7 @@
 
         h2 {
             text-align: center;
-            color: gray;
+            color: #444;
             margin-bottom: 1rem;
         }
 

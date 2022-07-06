@@ -5,6 +5,7 @@ $sql = "SELECT * FROM `users` WHERE acc='{$_SESSION['user']}'";
 $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,22 +17,71 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
     <link rel="stylesheet" href="../css/basic.css">
     <link rel="stylesheet" href="../css/admin.css">
 </head>
+<style>
+    .mem-box {
+        width: 300px;
+        padding: 4% 0 0;
+        margin: auto;
+    }
+
+    h2 {
+        text-align: center;
+        color: #444;
+        margin-bottom: 1rem;
+    }
+
+    .mem-label {
+        color: gray;
+        font-weight: bold;
+    }
+
+    .mem-box td{
+        margin: .2rem 0;
+    }
+
+    .mem-box .mem-data {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #fcfcfc;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 13px;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .mem-send {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #4CAF50;
+        width: 100%;
+        border: 0;
+        padding: 12px;
+        color: #FFFFFF;
+        font-size: 18px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+    }
+</style>
 
 <body>
     <div id="header">
-        <?php
-        include "../layout/header.php";
-        include "../layout/mem_nav.php";
-        ?>
+    <?php
+    include "../layout/header.php";
+    include "../layout/mem_nav.php";
+    ?>
     </div>
     <div id="container">
-
-        <h1>會員中心</h1>
-        <h2>嗨 <?= $_SESSION['user']; ?>！ 歡迎回來</h2>
+         <h2>嗨 <?=$_SESSION['user']; 
+                ?>！ 歡迎回來</h2>
+    <div class="mem-box">
         <table>
+            <h2>會員資料</h2>
             <tr>
-                <td>帳號：</td>
-                <td><?= $user['acc']; ?></td>
+                <td class="mem-label">帳號</td>
+                <td class="mem-data"><?= $user['acc']; ?></td>
             </tr>
             <!-- <tr>
                     <td>密碼</td>
@@ -39,26 +89,22 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
                         ?></td>
                 </tr> -->
             <tr>
-                <td>姓名：</td>
-                <td><?= $user['name']; ?></td>
+                <td class="mem-label">姓名</td>
+                <td class="mem-data"><?= $user['name']; ?></td>
             </tr>
             <tr>
-                <td>生日：</td>
-                <td><?= $user['birthday']; ?></td>
+                <td class="mem-label">生日</td>
+                <td class="mem-data"><?= $user['birthday']; ?></td>
             </tr>
             <tr>
-                <td>性別：</td>
-                <td><?= ($user['gender'] == 0) ? '女性' : '男性'; ?></td>
+                <td class="mem-label">性別</td>
+                <td class="mem-data"><?= ($user['gender'] == 0) ? '女性' : '男性'; ?></td>
             </tr>
-            <tr>
-                <td>地址：</td>
-                <td><?= $user['addr']; ?></td>
-            </tr>
-            <td>教育程度：</td>
-            <td>
+            <td class="mem-label">教育程度</td>
+            <td class="mem-data">
                 <?php
-                $edu=$user['education'];
-                switch($edu){
+                $edu = $user['education'];
+                switch ($edu) {
                     case "1":
                         echo "小學";
                         break;
@@ -79,22 +125,22 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
             </td>
             </tr>
             <tr>
-                <td>email：</td>
-                <td><?= $user['email']; ?></td>
+                <td class="mem-label">email</td>
+                <td class="mem-data"><?= $user['email']; ?></td>
             </tr>
         </table>
         <div>
-            <form action="edit.php" method="post">
+            <form action="./login/edit.php" method="post">
                 <input type="hidden" name="id" value="<?= $user['id']; ?>"> <!-- 隱藏按鈕帶參數過去 -->
-                <input type="submit" class="logbtn" value="編輯資料">
+                <input class="mem-send" type="submit" class="logbtn" value="編輯資料">
         </div>
     </div>
 
-    <div>
+    <!-- <div>
         <?php
-        include "../layout/footer.php";
+        // include "../layout/footer.php";
         ?>
-    </div>
+    </div> -->
 
 
 

@@ -9,7 +9,6 @@ $sql="UPDATE `users` -- 更新資料表
              `name`='{$_POST['name']}',
              `birthday`='{$_POST['birthday']}',
              `gender`='{$_POST['gender']}',
-             `addr`='{$_POST['addr']}',
              `education`='{$_POST['education']}',
              `email`='{$_POST['email']}'
       WHERE  `id`='{$_POST['id']}'";

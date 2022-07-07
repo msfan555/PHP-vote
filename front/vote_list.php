@@ -152,7 +152,7 @@ if (isset($_GET['filter'])) {
         }
         ?>
     </ul>
-    <div class="text-center">
+    <div class="text-center page-div">
         <?php
         if ($pages > 1) {
             for ($i = 1; $i <= $pages; $i++) {

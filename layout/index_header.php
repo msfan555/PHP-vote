@@ -20,13 +20,6 @@
         <a class="bar" href="../vote/index.php">投票列表</a>
     </div>
     <div>
-        <a class="bar" href="?do=admin_vote">投票管理</a>
+        <a class="bar-end" href="../vote/admin.php">投票管理</a>
     </div>
-    <div>
-        <a class="bar" href="?do=add_vote">新增投票</a>
-    </div>
-    <div>
-        <a class="bar-end" href="?do=admin_type">分類管理</a>
-    </div>
-
 </nav>

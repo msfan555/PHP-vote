@@ -2,6 +2,8 @@ ul {
     margin: 1rem 0 1rem 0;
 }
 
+/* 列表header */
+
 .list-header {
     display: flex;
     justify-content: space-evenly;
@@ -13,7 +15,6 @@ ul {
     padding: 0.5rem 1rem;
     background-color: #83668b;
     color: #FFFFFF;
-    /* font-weight: bold; */
 }
 
 .list-items {
@@ -90,5 +91,5 @@ ul {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 5px 10px #ccc;
 }

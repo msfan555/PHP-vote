@@ -28,6 +28,8 @@ ul{
     width: calc(100% / 5);
     padding: 0.5rem 1rem;
     background-color: #83668b;
+    /* background-color: #8e6997;
+    background-color: #3b6b81;  */
     color: #FFFFFF;
 }
 
@@ -86,6 +88,10 @@ margin: 0 0.5rem;
     color: #444;
     font-weight: 400;
 
+}
+
+.page-div{
+    margin-top:2rem;
 }
 
 .page{

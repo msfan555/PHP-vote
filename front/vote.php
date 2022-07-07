@@ -1,6 +1,8 @@
 <?php
 include_once "./api/base.php";
 
+// $user=find("users",$_SESSION['user'])['id'];
+
 $subject = find("subjects", $_GET['id']);
 
 $opts = all("options", ['subject_id' => $_GET['id']]);

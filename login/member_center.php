@@ -5,7 +5,6 @@ $sql = "SELECT * FROM `users` WHERE acc='{$_SESSION['user']}'";
 $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,8 +51,6 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
     }
 
     .mem-send {
-        font-family: "Roboto", sans-serif;
-        text-transform: uppercase;
         outline: 0;
         background: #4CAF50;
         width: 100%;
@@ -61,16 +58,15 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         padding: 12px;
         color: #FFFFFF;
         font-size: 18px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
+        border-radius: 5px;
+
     }
 </style>
 
 <body>
     <div id="header">
     <?php
-    include "../layout/header.php";
-    include "../layout/mem_nav.php";
+    include "../layout/admin_header.php";
     ?>
     </div>
     <div id="container">

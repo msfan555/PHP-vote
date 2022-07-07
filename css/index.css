@@ -27,9 +27,8 @@ ul{
 .list-header div{
     width: calc(100% / 5);
     padding: 0.5rem 1rem;
-    background-color: #83668b;
-    /* background-color: #8e6997;
-    background-color: #3b6b81;  */
+    background: #83668b;
+    /* background-color: #3b6b81;  */
     color: #FFFFFF;
 }
 

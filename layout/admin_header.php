@@ -1,5 +1,5 @@
 <div class="upper">
-    <div>歡迎您 <?= $_SESSION['user']; ?></div>
+    <div>歡迎您 <?= $_SESSION['name']; ?></div>
     <div>
         <a href="?do=member_center">會員中心</a>
     </div>

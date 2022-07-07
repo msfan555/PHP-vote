@@ -1,3 +1,9 @@
+<?php
+include_once "../api/base.php";
+$sql = "SELECT * FROM users WHERE id='{$_POST['id']}'";
+$user = $pdo->query($sql)->fetch();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,113 +14,113 @@
     <title>編輯會員資料</title>
     <link rel="stylesheet" href="../css/basic.css">
     <link rel="stylesheet" href="../css/admin.css">
+
+    <style>
+        .edit-box {
+            width: 360px;
+            padding: 2% 0 0;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            color: gray;
+            font-weight: bold;
+        }
+
+        .edit-box .edit-data input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 13px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .edit-box .edit-acc input {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #fcfcfc;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 13px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        select {
+            font-family: "Roboto", sans-serif;
+            outline: 0;
+            background: #f2f2f2;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 13px;
+            cursor: pointer;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .edit-send {
+            outline: 0;
+            background: #5f386b;
+            width: 35%;
+            border: 0;
+            padding: 12px;
+            color: #f9c78b;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
+        }
+
+        .edit-send:hover {
+            background: #71477c;
+        }
+
+        .res-btn {
+            outline: 0;
+            background: #8b6495;
+            width: 35%;
+            border: 0;
+            padding: 12px;
+            color: #FFFFFF;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
+        }
+
+        .res-btn:hover {
+            /* background: #b48bbf; */
+            color: #444;
+        }
+    </style>
 </head>
-<style>
-    .edit-box {
-        width: 360px;
-        padding: 4% 0 0;
-        margin: auto;
-    }
-
-    h2 {
-        text-align: center;
-        color: #444;
-        margin-bottom: 1rem;
-    }
-
-    label {
-        color: gray;
-        font-weight: bold;
-    }
-
-
-    .edit-box .edit-data input {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 13px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    .edit-box .edit-acc input {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #fcfcfc;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 13px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    select {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 13px;
-        cursor: pointer;
-    }
-
-    .btns {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .edit-send {
-        font-family: "Roboto", sans-serif;
-        text-transform: uppercase;
-        outline: 0;
-        background: #4CAF50;
-        width: 35%;
-        border: 0;
-        padding: 12px;
-        color: #FFFFFF;
-        font-size: 18px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
-        cursor: pointer;
-    }
-
-    .res-btn {
-        font-family: "Roboto", sans-serif;
-        text-transform: uppercase;
-        outline: 0;
-        background: #98D98E;
-        width: 35%;
-        border: 0;
-        padding: 12px;
-        color: #FFFFFF;
-        font-size: 18px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
-        cursor: pointer;
-    }
-</style>
 
 <body>
     <div id="header">
-        <?php include "../layout/header.php"; ?>
-        <?php include "../layout/mem_nav.php"; ?>
+        <?php include "../layout/admin_header.php"; ?>
     </div>
 
 
     <!-- 主要內容 -->
     <div id="container">
-        <?php
-        include_once "../api/base.php";
-        $sql = "SELECT * FROM users WHERE id='{$_POST['id']}'";
-        $user = $pdo->query($sql)->fetch();
-        ?>
+
         <div class="edit-box">
-            <h2>編輯會員</h2>
+            <h2>編輯會員資料</h2>
             <form action="save_member.php" method="post">
                 <div class="edit-acc">
                     <label>帳號</label>
@@ -164,8 +170,8 @@
             </form>
         </div>
     </div>
-    <div>
 
+    <div>
         <?php include "../layout/footer.php"; ?>
     </div>
 </body>

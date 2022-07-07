@@ -69,7 +69,6 @@
 
     #btn-opt {
         outline: 0;
-        background: #5f386b;
         width: 30%;
         border: 0;
         padding: 0.4rem 0.4rem;

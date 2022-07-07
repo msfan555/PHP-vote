@@ -22,7 +22,6 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         padding: 4% 0 0;
         margin: auto;
     }
-
     h2 {
         text-align: center;
         color: #444;
@@ -34,9 +33,7 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         font-weight: bold;
     }
 
-
     .mem-box .mem-data {
-        font-family: "Roboto", sans-serif;
         outline: 0;
         background: #fcfcfc;
         width: 100%;
@@ -60,7 +57,12 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         cursor: pointer;
         margin: .5rem 0;
         color: #f9c78b;
+        border-radius: 5px;
     }
+
+    .mem-send:hover {
+    background: #71477c;
+}
 
     .mem-send:hover {
         background: #8e6997;
@@ -102,30 +104,30 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
             <div>
                 <label class="mem-label">性別</label>
                 <div class="mem-data"><?= ($user['gender'] == 0) ? '女性' : '男性'; ?></div>
-            </tr>
-            <label class="mem-label">教育程度</label>
-            <div class="mem-data">
-                <?php
-                $edu = $user['education'];
-                switch ($edu) {
-                    case "1":
-                        echo "小學";
-                        break;
-                    case "2":
-                        echo "中學";
-                        break;
-                    case "3":
-                        echo "高中";
-                        break;
-                    case "4":
-                        echo "大學";
-                        break;
-                    case "5":
-                        echo "研究所";
-                        break;
-                }
-                ?>
-            </div>
+                </tr>
+                <label class="mem-label">教育程度</label>
+                <div class="mem-data">
+                    <?php
+                    $edu = $user['education'];
+                    switch ($edu) {
+                        case "1":
+                            echo "小學";
+                            break;
+                        case "2":
+                            echo "中學";
+                            break;
+                        case "3":
+                            echo "高中";
+                            break;
+                        case "4":
+                            echo "大學";
+                            break;
+                        case "5":
+                            echo "研究所";
+                            break;
+                    }
+                    ?>
+                </div>
             </div>
             <div>
                 <label class="mem-label">email</label>

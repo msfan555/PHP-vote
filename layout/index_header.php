@@ -1,7 +1,7 @@
 <div class="upper">
     <div>
         <?php
-        if (isset($_SESSION['user'])) {
+        if (isset($_SESSION['acc'])) {
         ?>
             <a href="../vote/login/logout.php">登出</a>
         <?php

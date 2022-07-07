@@ -34,10 +34,6 @@ ul {
     color: #444;
 }
 
-/* .list-items:hover {
-    background-color: rgb(208,208,206,0.3);
-    box-shadow: 0 3px 6px rgba(88, 88, 86, 0.2);
-} */
 
 .edit {
     margin: 0.2rem 0.2rem;
@@ -86,10 +82,14 @@ ul {
     color: #f9c78b;
     font-size: 16px;
     cursor: pointer;
-    font-weight: 400;    
+    font-weight: 400;
     margin: 1.5rem 1rem 0 1rem;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 5px 10px #ccc;
+}
+
+.btn:hover {
+    background: #71477c;
 }

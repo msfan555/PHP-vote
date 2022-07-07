@@ -2,6 +2,9 @@
 //記錄投票結果
 include_once "base.php";
 
+// echo $subject;
+// exit ();
+
 if (isset($_POST['opt'])) {
 
     if (is_array($_POST['opt'])) {
@@ -15,7 +18,7 @@ if (isset($_POST['opt'])) {
                 save("subjects", $subject);
             }
             $log = [
-                'user_id' => (isset($_SESSION['user'])) ? $_SESSION['user'] : 0,
+                'user_id' => (isset($_SESSION['id'])) ? $_SESSION['id'] : 0,
                 'subject_id' => $subject['id'],
                 'option_id' => $option['id']
             ];
@@ -30,7 +33,7 @@ if (isset($_POST['opt'])) {
         $subject['total']++;
         save("subjects", $subject);
         $log = [
-            'user_id' => (isset($_SESSION['user'])) ? $_SESSION['user'] : 0,
+            'user_id' => (isset($_SESSION['id'])) ? $_SESSION['id'] : 0,
             'subject_id' => $subject['id'],
             'option_id' => $option['id']
         ];

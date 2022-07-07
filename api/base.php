@@ -219,7 +219,8 @@ function  save($table, $arg)
         //建立新增的sql語法
         $sql = "INSERT INTO $table (`$cols`) VALUES('$values')";
     }
-
+    
+    // echo $sql;
     return $pdo->exec($sql);
 }
 

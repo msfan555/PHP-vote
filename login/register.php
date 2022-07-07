@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員註冊</title>
+    <link rel="stylesheet" href="../css/basic.css">
+
     <style>
         .reg-box {
             width: 360px;
-            padding: 4% 0 0;
+            padding: 2% 0 0;
             margin: auto;
         }
 
@@ -48,98 +50,108 @@
             cursor: pointer;
         }
 
-        .btns{
+        .btns {
             display: flex;
             justify-content: space-evenly;
         }
 
         .reg-btn {
-            font-family: "Roboto", sans-serif;
-            text-transform: uppercase;
             outline: 0;
-            background: #4CAF50;
+            background: #5f386b;
             width: 35%;
             border: 0;
             padding: 12px;
-            color: #FFFFFF;
-            font-size: 18px;
-            -webkit-transition: all 0.3 ease;
-            transition: all 0.3 ease;
+            color: #f9c78b;
+            font-size: 16px;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
             cursor: pointer;
         }
 
+        .reg-btn:hover {
+            background: #71477c;
+        }
+
         .res-btn {
-            font-family: "Roboto", sans-serif;
-            text-transform: uppercase;
             outline: 0;
-            background: #98D98E;
+            background: #8b6495;
             width: 35%;
             border: 0;
             padding: 12px;
             color: #FFFFFF;
-            font-size: 18px;
-            -webkit-transition: all 0.3 ease;
-            transition: all 0.3 ease;
+            font-size: 16px;
             cursor: pointer;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
-    <div class="reg-box">
-        <h2>會員註冊</h2>
-
-        <form action="store_member.php" method="post">
-
-            <div class="reg-data">
-                <label for="acc">帳號</label>
-                <input type="text" name="acc">
-            </div>
-            <div class="reg-data">
-                <label for="acc">密碼</label>
-                <input type="password" name="pw">
-            </div>
-            <div class="reg-data">
-                <label for="name">姓名</label>
-                <input type="text" name="name">
-            </div>
-            <div class="reg-data">
-                <label for="birthday">生日</label>
-                <input type="date" name="birthday" id="birthady">
-            </div>
-            <div class="reg-data">
-                <label for="gender">性別</label>
-                <select name="gender" id="gender">
-                    <option value="hide">--</option>
-                    <option value="0">女性</option>
-                    <option value="1">男性</option>
-                    <!-- <option value="2"></option> -->
-                </select>
-            </div>
-            <div class="reg-data">
-                <label for="education">教育程度</label>
-                <select name="education" id="education">
-                    <option value="hide">--</option>
-                    <option value="0">小學</option>
-                    <option value="1">中學</option>
-                    <option value="2">高中</option>
-                    <option value="3">大學</option>
-                    <option value="4">研究所</option>
-                </select>
-            </div>
-            <div class="reg-data">
-                <label for="email">email</label>
-                <input type="email" name="email">
-            </div>
-
-
-            <div class="btns">
-                <input class="reg-btn" type="submit" value="註冊">
-                <input class="res-btn" type="reset" value="清空">
-            </div>
-        </form>
-
+    <div id="header">
+        <?php include "../layout/index_header.php"; ?>
     </div>
+    <div id="container">
+        <div class="reg-box">
+            <h2>會員註冊</h2>
+
+            <form action="store_member.php" method="post">
+
+                <div class="reg-data">
+                    <label for="acc">帳號</label>
+                    <input type="text" name="acc">
+                </div>
+                <div class="reg-data">
+                    <label for="acc">密碼</label>
+                    <input type="password" name="pw">
+                </div>
+                <div class="reg-data">
+                    <label for="name">姓名</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="reg-data">
+                    <label for="birthday">生日</label>
+                    <input type="date" name="birthday" id="birthady">
+                </div>
+                <div class="reg-data">
+                    <label for="gender">性別</label>
+                    <select name="gender" id="gender">
+                        <option value="hide">--</option>
+                        <option value="0">女性</option>
+                        <option value="1">男性</option>
+                        <!-- <option value="2"></option> -->
+                    </select>
+                </div>
+                <div class="reg-data">
+                    <label for="education">教育程度</label>
+                    <select name="education" id="education">
+                        <option value="hide">--</option>
+                        <option value="0">小學</option>
+                        <option value="1">中學</option>
+                        <option value="2">高中</option>
+                        <option value="3">大學</option>
+                        <option value="4">研究所</option>
+                    </select>
+                </div>
+                <div class="reg-data">
+                    <label for="email">email</label>
+                    <input type="email" name="email">
+                </div>
+
+
+                <div class="btns">
+                    <input class="reg-btn" type="submit" value="註冊">
+                    <input class="res-btn" type="reset" value="清空">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div>
+        <?php include "../layout/footer.php"; ?>
+    </div>
+
 </body>
 
 </html>

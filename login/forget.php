@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員登入</title>
+    <title>忘記密碼</title>
+    <link rel="stylesheet" href="../css/basic.css">
+
     <style>
         .reset-box {
             width: 360px;
@@ -43,58 +45,66 @@
             font-size: 14px;
         }
 
-
         .btns {
             display: flex;
             justify-content: space-evenly;
         }
 
         .send {
-            font-family: "Roboto", sans-serif;
-            text-transform: uppercase;
             outline: 0;
-            background: #4CAF50;
+            background: #5f386b;
             width: 35%;
             border: 0;
             padding: 12px;
-            color: #FFFFFF;
-            font-size: 18px;
-            -webkit-transition: all 0.3 ease;
-            transition: all 0.3 ease;
+            color: #f9c78b;
+            font-size: 16px;
             cursor: pointer;
-            text-align: center;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
             text-decoration: none;
+            text-align: center;
+        }
+
+        .send:hover {
+            background: #71477c;
         }
 
         .back {
-            font-family: "Roboto", sans-serif;
-            text-transform: uppercase;
             outline: 0;
-            background: #C3D825;
+            background: #295970;
             width: 35%;
             border: 0;
             padding: 12px;
             color: #FFFFFF;
-            font-size: 18px;
-            -webkit-transition: all 0.3 ease;
-            transition: all 0.3 ease;
+            font-size: 16px;
             cursor: pointer;
-            text-align: center;
+            box-shadow: 0 5px 10px #ccc;
+            border-radius: 5px;
             text-decoration: none;
+            text-align: center;
+        }
+
+        .back:hover {
+            background: #3b6b81;
+            color: #444;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div id="header">
+        <?php include "../layout/index_header.php"; ?>
+    </div>
+
+    <div id="container">
         <div class="reset-box">
-            <h2>更新密碼</h2>
+            <h2>忘記密碼</h2>
             <?php
             if (isset($_GET['error'])) {
                 echo "<h3 class='error'>{$_GET['error']}</h3>";
             }
             ?>
-            <form action="./chk_acc.php" method="post">
+            <form action="chk_acc.php" method="post">
                 <div class="reset-data">
                     <label for="acc">請輸入您的帳號</label>
                     <input type="text" name="acc" id="acc">
@@ -113,6 +123,10 @@
                 </div>
             </form>
         </div>
+    </div>
+
+    <div>
+        <?php include "../layout/footer.php"; ?>
     </div>
 
 </body>

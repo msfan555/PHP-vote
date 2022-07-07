@@ -29,14 +29,11 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         margin-bottom: 1rem;
     }
 
-    .mem-label {
+    label {
         color: gray;
         font-weight: bold;
     }
 
-    .mem-box td{
-        margin: .2rem 0;
-    }
 
     .mem-box .mem-data {
         font-family: "Roboto", sans-serif;
@@ -44,24 +41,29 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
         background: #fcfcfc;
         width: 100%;
         border: 0;
-        margin: 0 0 15px;
-        padding: 13px;
+        margin: 0 0 1rem;
+        padding: 6px 13px;
         box-sizing: border-box;
         font-size: 14px;
+        border-bottom: 1.2px solid #f9c78b;
     }
 
     .mem-send {
-        font-family: "Roboto", sans-serif;
-        text-transform: uppercase;
         outline: 0;
-        background: #4CAF50;
+        background: #5f386b;
         width: 100%;
         border: 0;
         padding: 12px;
         color: #FFFFFF;
         font-size: 18px;
-        -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
+        cursor: pointer;
+        margin: .5rem 0;
+        color: #f9c78b;
+    }
+
+    .mem-send:hover {
+        background: #8e6997;
     }
 </style>
 
@@ -80,29 +82,29 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
     <div class="mem-box">
         <table>
             <h2>會員資料</h2>
-            <tr>
-                <td class="mem-label">帳號</td>
-                <td class="mem-data"><?= $user['acc']; ?></td>
-            </tr>
+            <div>
+                <label class="mem-label">帳號</label>
+                <div class="mem-data"><?= $user['acc']; ?></div>
+            </div>
             <!-- <tr>
                     <td>密碼</td>
                     <td><?php // $user['pw']; 
                         ?></td>
                 </tr> -->
-            <tr>
-                <td class="mem-label">姓名</td>
-                <td class="mem-data"><?= $user['name']; ?></td>
+            <div>
+                <label class="mem-label">姓名</label>
+                <div class="mem-data"><?= $user['name']; ?></div>
+            </div>
+            <div>
+                <label class="mem-label">生日</label>
+                <div class="mem-data"><?= $user['birthday']; ?></div>
+            </div>
+            <div>
+                <label class="mem-label">性別</label>
+                <div class="mem-data"><?= ($user['gender'] == 0) ? '女性' : '男性'; ?></div>
             </tr>
-            <tr>
-                <td class="mem-label">生日</td>
-                <td class="mem-data"><?= $user['birthday']; ?></td>
-            </tr>
-            <tr>
-                <td class="mem-label">性別</td>
-                <td class="mem-data"><?= ($user['gender'] == 0) ? '女性' : '男性'; ?></td>
-            </tr>
-            <td class="mem-label">教育程度</td>
-            <td class="mem-data">
+            <label class="mem-label">教育程度</label>
+            <div class="mem-data">
                 <?php
                 $edu = $user['education'];
                 switch ($edu) {
@@ -123,12 +125,12 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
                         break;
                 }
                 ?>
-            </td>
-            </tr>
-            <tr>
-                <td class="mem-label">email</td>
-                <td class="mem-data"><?= $user['email']; ?></td>
-            </tr>
+            </div>
+            </div>
+            <div>
+                <label class="mem-label">email</label>
+                <div class="mem-data"><?= $user['email']; ?></div>
+            </div>
         </table>
         <div>
             <form action="./login/edit.php" method="post">

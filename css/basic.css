@@ -7,9 +7,19 @@
     /* overflow: auto; */
 }
 
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 /* 整個header */
 #header {
-    position: relative;
+    /* position: relative; */
     width: 100%;
     height: 150px;
     top: 0px;
@@ -94,11 +104,13 @@ color: #ffffff;
 
 /* 中間主要內容 */
 #container {
-    position: absolute;
+    /* position: absolute; */
+    left: 15%;
     width: 85%;
     min-width: 1000px;
     margin: auto;
     min-height: calc(100vh - 300px - 2.5rem);
+    flex-grow: 1;
     /* position: fixed; */
     /* overflow: scroll; */
 }
@@ -112,7 +124,7 @@ footer {
     font-size: 1.1rem;
     font-weight: 300;
     color: #ffffff;
-    position: fixed;
+    /* position: fixed; */
     right: 0;
     bottom: 0;
     left: 0;

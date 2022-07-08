@@ -118,7 +118,9 @@
                     <input type="password" name="pw">
                 </div>
                 <div class="btns">
-                    <a class="send" href='chk_acc.php'>送出</a>
+                    <!-- <a class="send" href='chk_acc.php'>送出</a> --> 
+                    <!-- 用href指向某個連結，會用get方式傳送，但是這裡需要用post -->
+                    <input class="send" type="submit">
                     <a class="back" href='../index.php'>回首頁</a>
                 </div>
             </form>

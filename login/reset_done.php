@@ -10,7 +10,7 @@
 
 <script>
   alert("密碼修改完成，請使用新密碼重新登入");
-  window.location.href="../admin.php"
+  window.location.href="login.php"
 </script>
 
 </body>

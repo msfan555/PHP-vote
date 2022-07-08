@@ -34,7 +34,6 @@ $user = $pdo->query($sql)->fetch();
         }
 
         .edit-box .edit-data input {
-            font-family: "Roboto", sans-serif;
             outline: 0;
             background: #f2f2f2;
             width: 100%;

@@ -11,7 +11,7 @@
     <style>
         .reset-box {
             width: 360px;
-            padding: 8% 0 0;
+            padding: 4% 0 0;
             margin: auto;
         }
 
@@ -93,7 +93,7 @@
 
 <body>
     <div id="header">
-        <?php include "../layout/index_header.php"; ?>
+        <?php include "../layout/login_header.php"; ?>
     </div>
 
     <div id="container">
@@ -107,15 +107,15 @@
             <form action="chk_acc.php" method="post">
                 <div class="reset-data">
                     <label for="acc">請輸入您的帳號</label>
-                    <input type="text" name="acc" id="acc">
+                    <input type="text" name="acc">
                 </div>
                 <div class="reset-data">
                     <label for="email">請輸入您的email</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" name="email">
                 </div>
                 <div class="reset-data">
                     <label for="pw">請輸入新的密碼</label>
-                    <input type="password" name="pw" id="pw">
+                    <input type="password" name="pw">
                 </div>
                 <div class="btns">
                     <a class="send" href='chk_acc.php'>送出</a>

@@ -83,7 +83,7 @@
 <body>
 
     <div id="header">
-        <?php include "../layout/index_header.php"; ?>
+        <?php include "../layout/login_header.php"; ?>
     </div>
 
     <div id="container">

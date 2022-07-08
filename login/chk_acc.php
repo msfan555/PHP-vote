@@ -1,7 +1,28 @@
 <?php
 
-include "../api/base.php";//連線資料庫
+include "../api/base.php";
 
+$pdo = pdo(); //連線資料庫
+
+// $dsn="mysql:host=localhost;charset=utf8;dbname=vote";
+// $pdo=new PDO($dsn,'root','');
+
+
+$acc=$_POST['acc'];
+$email=$_POST['email'];
+$pw=md5($_POST['pw']);
+
+$sql= "UPDATE `users` SET `pw` = '$pw' WHERE `users`.`acc` = '{$_POST['acc']}' AND `email` = '{$_POST['email']}'";
+
+// $pdo->exec($sql);
+echo $sql;
+
+exit ();
+
+
+
+
+// 我的
 $acc=$_POST['acc'];
 $email=$_POST['email'];
 
@@ -12,7 +33,7 @@ dd($chk);
 
 // echo $chk;
 echo $sql;
-exit();
+// exit();
 
 $error='';
 

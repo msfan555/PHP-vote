@@ -24,6 +24,9 @@ include_once "./api/base.php";
         <?php
         if (isset($_GET['do'])) {
             $file = './front/' . $_GET['do'] . ".php";
+            if(isset($_GET['login'])){
+                $file = "./login/" . $_GET['do'] . ".php";
+            }
         }
         if (isset($file) && file_exists($file)) {
             include $file;

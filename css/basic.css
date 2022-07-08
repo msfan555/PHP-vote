@@ -4,7 +4,6 @@
     list-style-type: none;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    /* overflow: auto; */
 }
 
 html, body{
@@ -111,8 +110,6 @@ color: #ffffff;
     margin: auto;
     min-height: calc(100vh - 300px - 2.5rem);
     flex-grow: 1;
-    /* position: fixed; */
-    /* overflow: scroll; */
 }
 
 footer {

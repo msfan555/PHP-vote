@@ -9,7 +9,7 @@ $opts = all("options", ['subject_id' => $_GET['id']]);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>投票結果</title>
     <style>
         .result-box {
             width: 360px;
@@ -92,7 +92,7 @@ $opts = all("options", ['subject_id' => $_GET['id']]);
         </div>
         <div class="btn">
             <?php
-            if (isset($_SESSION['id'])) {
+            if (isset($_SESSION['acc'])) {
             ?>
                 <button class="govote" onclick="location.href='?do=vote&id=<?= $subject['id']; ?>'">我要投票</button>
             <?php

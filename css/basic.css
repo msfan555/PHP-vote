@@ -108,7 +108,8 @@ color: #ffffff;
     width: 85%;
     min-width: 1000px;
     margin: auto;
-    min-height: calc(100vh - 300px - 2.5rem);
+    /* min-height: calc(100vh - 300px - 2.5rem); */
+    /* 高度寫死會造成footer */
     flex-grow: 1;
 }
 

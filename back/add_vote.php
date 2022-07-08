@@ -99,7 +99,7 @@
 </style>
 
 <body>
-
+<div id="container">
     <!-- 載入到back.php的container就不用再處理header footer -->
     <!-- 頁面 或 資料庫讀出資料 -->
     <form action="../vote/api/add_vote.php" method="post">
@@ -142,6 +142,7 @@
 
 
     </form>
+    </div>
     </div>
 
     <script>

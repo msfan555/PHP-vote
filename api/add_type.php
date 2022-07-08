@@ -4,13 +4,26 @@
 
 include_once "base.php";
 
-// $sql="SELECT count(*) FROM `types`  WHERE `name`={$_POST['name']}";
-// $chk=$pdo->query($sql)->fetchColumn();
 
-$sql2="SELECT * FROM `types`  WHERE `name`={$_POST['name']}";
-$chk2=$pdo->query($sql2)->fetchAll();
+// 檢查是否有$_POST的值
+foreach($_POST as $key => $value){
+//   echo "hello world";
+  echo "<br>";
+  echo $key;
+  echo "<br>";
+  echo $value;
+}
+exit ();
 
-dd($chk2);
+$sql="SELECT count(*) FROM `types`  WHERE `name`={$_POST['name']}";
+$chk=$pdo->query($sql)->fetchColumn();
+
+
+
+// $sql2="SELECT * FROM `types`  WHERE `name`={$_POST['name']}";
+// $chk2=$pdo->query($sql2)->fetchAll();
+
+dd($chk);
 exit();
 
 

@@ -75,34 +75,35 @@ include_once "../vote/api/base.php";
 </head>
 
 <body>
-    <div class="type-box">
+    <div id="container">
+        <div class="type-box">
 
-        <form action="../api/add_type.php" method="post">
-            <h2>編輯分類</h2>
-            <label for="">所有分類</label>
-            <?php
-            $types = all("types");
-            foreach ($types as $type) {
-                echo "<div value='{$type['id']}'>";
-                echo "<input class='type-name' type='text' name='name id='name' value='{$type['name']}'>";
-                // echo "<a class='edit' href='./back/edit_type&id={$type['id']}'>編輯</a>";
-                echo "<input class='edit' type='submit' value='修改'>";
-                echo "<a class='dele' href='?do=dele_type.php=dele&id={$type['id']}'>刪除</a>";
-                echo "</div>";
-            }
-            // 
-            ?>
+            <form action="../vote/api/add_type.php" method="post">
+                <h2>編輯分類</h2>
+                <label for="">所有分類</label>
+                <?php
+                $types = all("types");
+                foreach ($types as $type) {
+                    echo "<div value='{$type['id']}'>";
+                    echo "<input class='type-name' type='text' name='name id='name' value='{$type['name']}'>";
+                    // echo "<a class='edit' href='./back/edit_type&id={$type['id']}'>編輯</a>";
+                    echo "<input class='edit' type='submit' value='修改'>";
+                    echo "<a class='dele' href='?do=dele_type.php=dele&id={$type['id']}'>刪除</a>";
+                    echo "</div>";
+                }
+                // 
+                ?>
 
-            <div>
-                <label for="name">新增分類</label>
-                <input class="type-name" type="text" name="name" id="name">
-            </div>
-            <div>
-            <input type="hidden" name="id" value="<?= $type['id']; ?>">
-                <input class="btn send" type="submit" value="送出">
-            </div>
-        </form>
-
+                <div>
+                    <label for="name">新增分類</label>
+                    <input class="type-name" type="text" name="name" id="name">
+                </div>
+                <div>
+                    <input type="hidden" name="id" value="<?= $type['id']; ?>">
+                    <input class="btn send" type="submit" value="送出">
+                </div>
+            </form>
+        </div>
     </div>
 
 </body>

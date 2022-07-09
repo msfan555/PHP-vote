@@ -26,7 +26,7 @@ $chk=$pdo->query($sql)->fetchAll();
 // $chk2=$pdo->query($sql2)->fetchAll();
 
 dd($chk);
-exit();
+// exit();
 
 
 

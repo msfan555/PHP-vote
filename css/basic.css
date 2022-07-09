@@ -109,7 +109,7 @@ color: #ffffff;
     min-width: 1000px;
     margin: auto;
     /* min-height: calc(100vh - 300px - 2.5rem); */
-    /* 高度寫死會造成footer */
+    /* 100vh是瀏覽器高度，寫死高度footer會跟在container後面，超出100vh的內容就會掉到footer下方 */
     flex-grow: 1;
 }
 

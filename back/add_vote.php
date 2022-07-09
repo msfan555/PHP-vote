@@ -87,61 +87,61 @@
     #btn-opt:hover {
         background: #3b6b81;
     }
+
     .btn-send {
         margin: 0.5rem 0.5rem 0.4rem 15rem;
-        font-weight:bold;
+        font-weight: bold;
     }
 
     .btn-send:hover {
         background: #8e6997;
     }
-    
 </style>
 
 <body>
-<div id="container">
-    <!-- 載入到back.php的container就不用再處理header footer -->
-    <!-- 頁面 或 資料庫讀出資料 -->
-    <form action="../vote/api/add_vote.php" method="post">
-        <div class="add-box">
-            <h2>新增投票</h2>
-            <div>
-                <label for="types">選擇分類</label>
-                <select name="types" id="types">
-                    <?php
-                    $types = all("types");
-                    foreach ($types as $type) {
-                        echo "<option value='{$type['id']}'>";
-                        echo $type['name'];
-                        echo "</option>";
-                    }
+    <div id="container">
+        <!-- 載入到back.php的container就不用再處理header footer -->
+        <!-- 頁面 或 資料庫讀出資料 -->
+        <form action="../vote/api/add_vote.php" method="post">
+            <div class="add-box">
+                <h2>新增投票</h2>
+                <div>
+                    <label for="types">選擇分類</label>
+                    <select name="types" id="types">
+                        <?php
+                        $types = all("types");
+                        foreach ($types as $type) {
+                            echo "<option value='{$type['id']}'>";
+                            echo $type['name'];
+                            echo "</option>";
+                        }
 
-                    ?>
-                </select>
-            </div>
-            <div class="vote-data">
-                <label for="multiple">單/複選</label>
-                <select name="multiple" id="multiple">
-                    <option value="hide">--</option>
-                    <option name="multiple" value="0" selected>單選</option>
-                    <option name="multiple" value="0">複選</option>
-                </select>
-            </div>
-            <div class="vote-data">
-                <label for="subject">投票主題</label>
-                <input type="text" name="subject" id="subject">
-                <!-- label的for對應input的id 所以都要設成subject -->
-                <input id="btn-opt"  type="button" value="新增選項" onclick="addOpt()">
-            </div>
-            <div class="vote-data" id="options">
-                <label>選項</label><input type="text" name="option[]">
-                <!-- 同一個name但是有多筆資料的時候，option+[]使其變成陣列 -->
-            </div>
+                        ?>
+                    </select>
+                </div>
+                <div class="vote-data">
+                    <label for="multiple">單/複選</label>
+                    <select name="multiple" id="multiple">
+                        <option value="hide">--</option>
+                        <option name="multiple" value="0" selected>單選</option>
+                        <option name="multiple" value="0">複選</option>
+                    </select>
+                </div>
+                <div class="vote-data">
+                    <label for="subject">投票主題</label>
+                    <input type="text" name="subject" id="subject">
+                    <!-- label的for對應input的id 所以都要設成subject -->
+                    <input id="btn-opt" type="button" value="新增選項" onclick="addOpt()">
+                </div>
+                <div class="vote-data" id="options">
+                    <label>選項</label><input type="text" name="option[]">
+                    <!-- 同一個name但是有多筆資料的時候，option+[]使其變成陣列 -->
+                </div>
 
-            <input class="btns btn-send" type="submit" value="新增投票">
+                <input class="btns btn-send" type="submit" value="新增投票">
 
 
-    </form>
+        </form>
     </div>
     </div>
 

@@ -9,14 +9,16 @@ include_once "base.php";
 foreach($_POST as $key => $value){
 //   echo "hello world";
   echo "<br>";
-  echo $key;
+  echo "key=>".$key;
   echo "<br>";
-  echo $value;
+  echo "value=>".$value;
 }
-exit ();
+// exit ();
 
-$sql="SELECT count(*) FROM `types`  WHERE `name`={$_POST['name']}";
-$chk=$pdo->query($sql)->fetchColumn();
+$typeName=$_POST['name'];
+
+$sql="SELECT * FROM `types`  WHERE `name`='$typeName'";
+$chk=$pdo->query($sql)->fetchAll();
 
 
 

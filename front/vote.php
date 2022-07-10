@@ -1,6 +1,8 @@
 <?php
 include_once "./api/base.php";
 
+//登入者的身分
+$userId = $_SESSION['id'];
 
 $subject = find("subjects", $_GET['id']);
 

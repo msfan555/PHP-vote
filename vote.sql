@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 07 月 05 日 16:23
+-- 產生時間： 2022 年 07 月 10 日 13:31
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -69,7 +69,22 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (14, 0, 11, 37, '2022-07-02 09:05:38'),
 (15, 0, 11, 37, '2022-07-02 09:17:36'),
 (16, 0, 11, 36, '2022-07-02 09:18:04'),
-(17, 0, 11, 37, '2022-07-02 09:18:04');
+(17, 0, 11, 37, '2022-07-02 09:18:04'),
+(18, 10, 1, 1, '2022-07-07 15:28:49'),
+(19, 10, 1, 1, '2022-07-07 15:28:58'),
+(20, 10, 1, 1, '2022-07-07 15:29:13'),
+(21, 10, 1, 1, '2022-07-08 08:01:27'),
+(22, 10, 3, 9, '2022-07-08 08:01:42'),
+(23, 10, 3, 12, '2022-07-08 08:01:49'),
+(24, 11, 1, 1, '2022-07-10 08:55:43'),
+(25, 11, 1, 1, '2022-07-10 08:56:03'),
+(26, 11, 1, 1, '2022-07-10 09:23:20'),
+(27, 11, 1, 3, '2022-07-10 09:23:26'),
+(28, 11, 1, 1, '2022-07-10 09:24:01'),
+(29, 11, 1, 1, '2022-07-10 09:24:06'),
+(30, 11, 1, 1, '2022-07-10 09:26:00'),
+(31, 11, 14, 43, '2022-07-10 11:17:55'),
+(32, 11, 14, 44, '2022-07-10 11:17:55');
 
 -- --------------------------------------------------------
 
@@ -89,25 +104,25 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
-(1, '貓貓最高', 1, 4),
+(1, '貓貓最高', 1, 20),
 (2, '狗狗最可愛', 1, 0),
-(3, '小孩子才做選擇', 1, 1),
+(3, '小孩子才做選擇', 1, 2),
 (4, '動物先不要', 1, 0),
 (5, '逛市集買東西吃東西', 2, 0),
 (6, '百岳爬起來', 2, 2),
 (7, '上班那麼累，當然在家躺', 2, 1),
 (8, '海邊曬肉～～～', 2, 0),
-(9, '日本撒錢爆買', 3, 0),
+(9, '日本撒錢爆買', 3, 1),
 (10, '回香港吃手撕雞腸粉', 3, 2),
 (11, '朝聖之路走到腳爛掉', 3, 1),
-(12, '做夢比較快到', 3, 1),
+(12, '做夢比較快到', 3, 2),
 (13, '美咖耍美', 2, 0),
 (36, 'BL', 11, 3),
 (37, '百合', 11, 3),
-(41, '殺鬼主題的動畫', 13, 0),
+(41, '殺鬼主題的動畫', 13, 1),
 (42, '殭屍主題的展覽', 13, 0),
-(43, '蕃茄薯仔湯', 14, 0),
-(44, '魷魚肉餅', 14, 0),
+(43, '蕃茄薯仔湯', 14, 1),
+(44, '魷魚肉餅', 14, 2),
 (45, '哈哈哈蝦蝦蝦', 14, 0),
 (46, '西洋菜排骨湯', 14, 0);
 
@@ -133,12 +148,12 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '貓派vs狗派', 5, 0, 1, '2022-06-30', '2022-07-10', 5),
+(1, '貓派vs狗派', 5, 0, 1, '2022-06-30', '2022-07-10', 22),
 (2, '週末要幹嘛呀？', 6, 0, 1, '2022-06-30', '2022-07-10', 3),
-(3, '解封要去哪裡玩？', 6, 0, 1, '2022-06-30', '2022-07-05', 4),
+(3, '解封要去哪裡玩？', 6, 0, 1, '2022-06-30', '2022-07-05', 6),
 (11, '嘎嘎嗚拉拉', 1, 1, 1, '2022-07-02', '2022-07-12', 4),
-(13, '哪一個比較會教壞小孩？', 7, 0, 1, '2022-07-03', '2022-07-13', 0),
-(14, '最鍾意的料理', 6, 1, 1, '2022-07-03', '2022-07-13', 0);
+(13, '哪一個比較會教壞小孩？', 7, 0, 1, '2022-07-03', '2022-07-13', 1),
+(14, '最鍾意的料理', 6, 1, 1, '2022-07-03', '2022-07-13', 2);
 
 -- --------------------------------------------------------
 
@@ -159,7 +174,8 @@ INSERT INTO `types` (`id`, `name`) VALUES
 (5, '動物'),
 (6, '生活'),
 (7, '究極の選擇'),
-(8, '科技');
+(8, '444'),
+(74, 'haha');
 
 -- --------------------------------------------------------
 
@@ -174,7 +190,6 @@ CREATE TABLE `users` (
   `name` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `gender` tinyint(1) UNSIGNED NOT NULL,
-  `addr` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `education` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -183,11 +198,12 @@ CREATE TABLE `users` (
 -- 傾印資料表的資料 `users`
 --
 
-INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `addr`, `education`, `email`) VALUES
-(10, 'fan', '202cb962ac59075b964b07152d234b70', 'fanChiang', '2022-07-03', 0, 'fff', '3', 'ggggg@fff.com'),
-(11, 'luis', '202cb962ac59075b964b07152d234b70', 'luisk', '2022-07-04', 1, 'hk', '3', 'fff@fff.com'),
-(12, 'fanfan', '202cb962ac59075b964b07152d234b70', 'fan', '2022-07-04', 0, 'fff', '0', 'fff@fff.com'),
-(13, 'klose', '202cb962ac59075b964b07152d234b70', 'klose', '2022-07-05', 0, '', '3', 'fff@fff.com');
+INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `education`, `email`) VALUES
+(1, 'admin', 'admin', 'admin', '2022-02-21', 0, '4', 'ggg@ggg.com'),
+(11, 'luis', '202cb962ac59075b964b07152d234b70', 'luisk', '2022-07-04', 1, '3', 'fff@fff.com'),
+(12, 'fanfan', '202cb962ac59075b964b07152d234b70', 'fan', '2022-07-04', 0, '0', 'fff@fff.com'),
+(13, 'klose', '202cb962ac59075b964b07152d234b70', 'klose', '2022-07-05', 0, '3', 'fff@fff.com'),
+(14, 'kk', '202cb962ac59075b964b07152d234b70', 'kkk', '2022-07-07', 1, '3', 'fff@fff.com');
 
 --
 -- 已傾印資料表的索引
@@ -243,7 +259,7 @@ ALTER TABLE `admins`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=33;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
@@ -255,19 +271,19 @@ ALTER TABLE `options`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=20;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=77;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=14;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

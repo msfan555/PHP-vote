@@ -1,5 +1,5 @@
 <?php
-include "./api/base.php"; //連接資料庫
+//include "./api/base.php"; //連接資料庫
 
 $sql = "SELECT * FROM `users` WHERE acc='{$_SESSION['acc']}'";
 $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料

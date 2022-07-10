@@ -28,18 +28,18 @@ $opts = all("options", ['subject_id' => $_GET['id']]);
             font-weight: bold;
         }
 
-        .opt-box{
+        .opt-box {
             margin: .5rem 0;
         }
 
         .opt-bar {
-            padding:.26rem 0;
-            height:25px;
+            padding: .26rem 0;
+            height: 25px;
             background: #ce8933;
             font-size: 14px;
         }
 
-        .total{
+        .total {
             margin: 1.5rem 0 .5rem 0;
         }
 
@@ -92,7 +92,15 @@ $opts = all("options", ['subject_id' => $_GET['id']]);
         </div>
         <div class="btn">
             <?php
-            if (isset($_SESSION['acc'])) {
+
+
+            //判斷投票是否過期
+            //若過期
+            if ((strtotime("now")) > (strtotime($subject['end']))) {
+            ?>
+                <button class="govote" onclick="location.href='../vote/index.php' "style="background-color: #bd3d3a; color: white;">投票過期</button>
+            <?php
+            } elseif (isset($_SESSION['acc'])) {
             ?>
                 <button class="govote" onclick="location.href='?do=vote&id=<?= $subject['id']; ?>'">我要投票</button>
             <?php

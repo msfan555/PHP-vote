@@ -83,8 +83,7 @@
 
             // exit();
             //接收表單傳來的投票主題內容
-            // $type_id = $_POST['type_id']; // $type_id 來自傳值 'type_id'
-            // $new_type = $_POST['name']; // 新資料透過POST表單獲取type的'name'值, 將該值暫存於$new_type
+
 
             // $type = find('types', $type_id); //獲取資料表types內的$type_id資料
 
@@ -96,14 +95,45 @@
 
 
             //使用者第一次在網頁輸入的內容，在這裡判斷是否為post資料
-            if (isset($_POST['name'])) {
-                $typeName = $_POST['name'];
+            if (isset($_POST['name1'])) {
+
+                foreach ($_POST['id1'] as $idx => $id) {
+                    $editType = $_POST['name1'][$idx];
+                    // echo "<br>";
+                }
+
+
+                //資料庫撈出資料
+                $sql = "SELECT * FROM `types`  WHERE `name`='$editType'";
+                $chk = $pdo->query($sql)->fetchAll();
+                dd($chk);
+
+                $sql1 = "UPDATE `types` SET `name`='{$editType}' WHERE  `id`='{$id}'";
+
+
+                $error = '';
+
+                if ($chk) {
+                    $error = "輸入的分類內容重複，請輸入其他分類";
+                    echo "<h3 class=error>{$error}</h3>";
+                } else {
+                    $pdo->exec($sql1);
+                }
+                // exit();
+            }
+
+
+
+            if (isset($_POST['name2'])) {
+
+                $typeName = $_POST['name2'];
+                // $typeId = $_POST['id'];
 
                 //資料庫撈出資料
                 $sql2 = "SELECT * FROM `types`  WHERE `name`='$typeName'";
                 $chk2 = $pdo->query($sql2)->fetchAll();
-                // dd($chk);
-                // exit();
+                // dd($chk2);
+                // exit();       
 
                 $error = '';
 
@@ -114,34 +144,34 @@
                         echo "<h3 class=error>{$error}</h3>";
                     }
                 } else {
-                    $_POST['name'] = "$typeName";
-                    save('types', ['name' => $_POST['name']]);
+                    save('types', ['name' => $_POST['name2']]);
                 }
             }
 
             ?>
             <form id="" method="post">
 
-                <label for="">所有分類</label>
+                <label for="name1">所有分類</label>
                 <?php
                 $types = all("types");
                 foreach ($types as $type) {
                     echo "<div value='{$type['id']}'>";
-                    echo "<input class='type-name' type='text' name='name' id='name' value='{$type['name']}'>";
+                    echo "<input class='type-name' type='text' name='name1[]' id='name1' value='{$type['name']}'>";
+                    echo "<input type='hidden' name='id1[]' value='{$type["id"]}'>";
                     echo "</div>";
+                    echo "<input class='edit' type='submit' value='修改'>";
+                    echo "<a class='dele' href='?do=dele_type.php=dele&id={$type["id"]}'>刪除</a>";
                 }
                 ?>
+
                 <div>
-                    <input type="hidden" name="id" value="<?= $type['id']; ?>">
-                    <input class='edit' type='submit' value='修改'>
-                    <a class='dele' href="?do=dele_type.php=dele&id={$type['id']}">刪除</a>
                 </div>
             </form>
             <form id="" method="post">
 
                 <div>
-                    <label for="name">新增分類</label>
-                    <input class="type-name" type="text" name="name" id="name">
+                    <label for="name2">新增分類</label>
+                    <input class="type-name" type="text" name="name2" id="name2">
                 </div>
                 <div>
 

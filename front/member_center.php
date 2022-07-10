@@ -1,5 +1,5 @@
 <?php
-// include "./api/base.php"; //連接資料庫
+include "./api/base.php"; //連接資料庫
 
 $sql = "SELECT * FROM `users` WHERE acc='{$_SESSION['acc']}'";
 $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
@@ -135,7 +135,7 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
             </div>
         </table>
         <div>
-            <form action="./login/edit.php" method="post">
+            <form action="?do=edit" method="post">
                 <input type="hidden" name="id" value="<?= $user['id']; ?>"> <!-- 隱藏按鈕帶參數過去 -->
                 <input class="mem-send" type="submit" class="logbtn" value="編輯資料">
         </div>

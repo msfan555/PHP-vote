@@ -1,19 +1,19 @@
 <?php
 
-include "../api/base.php";//連線資料庫
+include "../api/base.php"; //連線資料庫
 
 
-$adminAcc=$_POST['acc'];
-$adminPw=($_POST['pw']);
+$adminAcc = $_POST['acc'];
+$adminPw = ($_POST['pw']);
 
 
-$userAcc=$_POST['acc'];
-$userPw=md5($_POST['pw']);//接收帳號密碼並且把密碼改成MD5
+$userAcc = $_POST['acc'];
+$userPw = md5($_POST['pw']); //接收帳號密碼並且把密碼改成MD5
 
 
 // 測試是否有收到資料
-echo $userAcc=$_POST['acc'];
-echo $userPw=md5($_POST['pw']);
+echo $userAcc = $_POST['acc'];
+echo $userPw = md5($_POST['pw']);
 // exit ();
 
 
@@ -21,8 +21,8 @@ echo $userPw=md5($_POST['pw']);
 // echo $pw;
 // exit ();
 
-$sql="SELECT count(*) FROM `users` WHERE `acc`='$userAcc' && `pw`='$userPw'";//尋找資料表的acc跟pw是否相符
-$chk=$pdo->query($sql)->fetchColumn();
+$sql = "SELECT count(*) FROM `users` WHERE `acc`='$userAcc' && `pw`='$userPw'"; //尋找資料表的acc跟pw是否相符
+$chk = $pdo->query($sql)->fetchColumn();
 
 echo $sql;
 echo "<hr>";
@@ -33,11 +33,11 @@ echo "<hr>";
 echo "<hr>";
 
 
-$sql2="SELECT * FROM `users` WHERE `acc`='$userAcc' && `pw`='$userPw'";
-$chk2=$pdo->query($sql2)->fetchAll();
+$sql2 = "SELECT * FROM `users` WHERE `acc`='$userAcc' && `pw`='$userPw'";
+$chk2 = $pdo->query($sql2)->fetchAll();
 
-$userId=$chk2[0]['id'];
-$userName=$chk2[0]['name'];
+$userId = $chk2[0]['id'];
+$userName = $chk2[0]['name'];
 
 // $userId=
 
@@ -75,7 +75,7 @@ echo "$userName";
 
 
 
-$error='';
+$error = '';
 
 //管理員跟一般會員分流
 // if($adminAcc == 'admin' && $adminPW == "admin"){
@@ -85,14 +85,18 @@ $error='';
 //   header("location:../back.php");
 // }elseif($chk){
 
-if($chk){//如果資料庫有這一筆資料的話就是Ture
-  $_SESSION['acc']=$userAcc;//記錄使用者是誰 傳值到登入頁面
-  $_SESSION['id']=$userId;
-  $_SESSION['name']="$userName";
+if ($adminAcc == 'admin' && $adminPw == "admin") {
+  $_SESSION['acc'] = $adminAcc;
+  $_SESSION['id'] = "$adminId";
+  $_SESSION['name'] = "$adminName";
+  header("location:../admin.php");
+} elseif ($chk) { //如果資料庫有這一筆資料的話就是Ture
+  $_SESSION['acc'] = $userAcc; //記錄使用者是誰 傳值到登入頁面
+  $_SESSION['id'] = $userId;
+  $_SESSION['name'] = "$userName";
 
-  header("location:../admin.php");// 登入成功導向會員頁
-}else{
-  $error="帳號密碼錯誤";
-  header("location:login.php?error=$error");// 登入失敗回到登入頁
+  header("location:../index.php"); // 登入成功導向會員頁
+} else {
+  $error = "帳號密碼錯誤";
+  header("location:login.php?error=$error"); // 登入失敗回到登入頁
 }
-?>

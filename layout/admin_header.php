@@ -1,7 +1,7 @@
 <div class="upper">
-    <div>歡迎您 <?= $_SESSION['name']; ?></div>
+    <div>歡迎您 <?= $_SESSION['acc']; ?></div>
     <div>
-        <a href="?do=member_center">會員中心</a>
+        <a href="?do=member_center">個人資料</a>
     </div>
     <div>
         <a href="../vote/login/logout.php">登出</a>

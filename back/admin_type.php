@@ -83,43 +83,72 @@
 
             // exit();
             //接收表單傳來的投票主題內容
-
-
-            // $type = find('types', $type_id); //獲取資料表types內的$type_id資料
-
+            // $type = find('types', $id); //獲取資料表types內的$type_id資料
+            // $type['name'] = $_POST['name'];
             // $type['name'] = $new_type;
-            // // $subject['multiple'] = $_POST['multiple'];
-            // $type['id'] = $_POST['types'];
-
+            // $type['id'] = $_POST['id'];
             // save('types', $type);
-
-
             //使用者第一次在網頁輸入的內容，在這裡判斷是否為post資料
-            if (isset($_POST['name1'])) {
+            // if (isset($type['name'])) {
 
-                foreach ($_POST['id1'] as $idx => $id) {
-                    $editType = $_POST['name1'][$idx];
-                    // echo "<br>";
-                }
+            //     foreach ($type['id'] as $idKey => $id) {
+            //         $editType = $_POST['name'][$idKey];
+            //         echo $editType;
+            //         echo "<br>";
+            //         dd($editType);
+            //         // exit();
+            //     }
+            //     //資料庫撈出資料
+            //     $sql = "SELECT * FROM `types`  WHERE `name`='$editType'";
+            //     $chk = $pdo->query($sql)->fetchAll();
+            //     dd($chk);
+            //     $sql1 = "UPDATE `types` SET `name`='{$editType}' WHERE  `id`='{$id}'";
+            //     $error = '';
+            //     if ($chk) {
+            //         $error = "輸入的分類內容重複，請輸入其他分類";
+            //         echo "<h3 class=error>{$error}</h3>";
+            //     } else {
+            //         $pdo->exec($sql1);
+            //     }
+            //     // exit();
+            // }
 
+
+            // foreach ($_POST['name1'] as $key => $value) {
+            //     $editName = $_POST['name'];
+            //     echo $editName;
+            //     echo "<br>";
+            //     dd($editType);
+            //     exit();
+            // }
+
+            if (isset($_POST[$type['name']])) {
+
+                $editName = $_POST[$type['name']];
+                // $editId = $_POST['id'];
+
+                echo $editName;
+                // echo "<br>";
+                // echo $editId;
+                exit();
 
                 //資料庫撈出資料
-                $sql = "SELECT * FROM `types`  WHERE `name`='$editType'";
-                $chk = $pdo->query($sql)->fetchAll();
+                $sql = "SELECT * FROM `types`  WHERE `name`='$editName' && `id`='$editId'";
+                $chk = $pdo->query($sql2)->fetchAll();
                 dd($chk);
-
-                $sql1 = "UPDATE `types` SET `name`='{$editType}' WHERE  `id`='{$id}'";
-
+                exit();
 
                 $error = '';
 
-                if ($chk) {
-                    $error = "輸入的分類內容重複，請輸入其他分類";
-                    echo "<h3 class=error>{$error}</h3>";
+                if ($chk2) {
+                    //判斷輸入的內容是否有重複
+                    if (isset($error)) {
+                        $error = "輸入的分類內容重複，請輸入其他分類";
+                        echo "<h3 class=error>{$error}</h3>";
+                    }
                 } else {
-                    $pdo->exec($sql1);
+                    save('types', ['name' => $_POST['name2']]);
                 }
-                // exit();
             }
 
 
@@ -128,17 +157,19 @@
 
                 $typeName = $_POST['name2'];
                 // $typeId = $_POST['id'];
+                echo $typeName;
+                // exit ();
 
                 //資料庫撈出資料
                 $sql2 = "SELECT * FROM `types`  WHERE `name`='$typeName'";
                 $chk2 = $pdo->query($sql2)->fetchAll();
+                // echo $chk2;
                 // dd($chk2);
                 // exit();       
 
                 $error = '';
 
-                if ($chk2) {
-                    //判斷輸入的內容是否有重複
+                if ($chk2) { //判斷輸入的內容是否有重複，如果資料庫內有相同資料，chk2會大於0
                     if (isset($error)) {
                         $error = "輸入的分類內容重複，請輸入其他分類";
                         echo "<h3 class=error>{$error}</h3>";
@@ -155,17 +186,16 @@
                 <?php
                 $types = all("types");
                 foreach ($types as $type) {
-                    echo "<div value='{$type['id']}'>";
-                    echo "<input class='type-name' type='text' name='name1[]' id='name1' value='{$type['name']}'>";
-                    echo "<input type='hidden' name='id1[]' value='{$type["id"]}'>";
-                    echo "</div>";
-                    echo "<input class='edit' type='submit' value='修改'>";
-                    echo "<a class='dele' href='?do=dele_type.php=dele&id={$type["id"]}'>刪除</a>";
+                ?>
+                    <div value=<?= $type['id']; ?>>
+                        <input class='type-name' type='text' name="<?= $type['name']; ?>" id="name1" value="<?= $type['name']; ?>">
+                        <input type='hidden' name='<?= $type["id"]; ?>' value='<?= $type["id"]; ?>'>
+                    </div>
+                    <input class='edit' type='submit' value='修改'>
+                    <a class='dele' href='?do=dele_type.php=dele&id=<?= $type["id"]; ?>'>刪除</a>
+                <?php
                 }
                 ?>
-
-                <div>
-                </div>
             </form>
             <form id="" method="post">
 

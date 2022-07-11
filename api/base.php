@@ -31,7 +31,8 @@ function pdo()
  */
 
 function all($table, ...$arg)
-{
+{ 
+    // global $pdo;
     $pdo = pdo();
 
     //建立共有的基本SQL語法
@@ -91,6 +92,7 @@ function all($table, ...$arg)
 
 function find($table, $arg)
 {
+    // global $pdo;
     $pdo = pdo();
 
     $sql = "SELECT * FROM $table WHERE ";
@@ -120,6 +122,7 @@ function find($table, $arg)
 
 function del($table, $arg)
 {
+    // global $pdo;
     $pdo = pdo();
 
     $sql = "DELETE FROM $table WHERE ";
@@ -152,6 +155,7 @@ function del($table, $arg)
 
 function math($table, $math, $col, ...$arg)
 {
+    // global $pdo;
     $pdo = pdo();
 
     $sql = "SELECT $math(`$col`) FROM $table ";
@@ -188,6 +192,7 @@ function  to($url)
 
 function  q($sql)
 {
+    // global $pdo;
     $pdo = pdo();
 
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -203,7 +208,9 @@ function  q($sql)
 
 function  save($table, $arg)
 {
+    // global $pdo;
     $pdo = pdo();
+
     $sql = '';
     if (isset($arg['id'])) {
         //update

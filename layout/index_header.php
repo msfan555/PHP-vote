@@ -22,6 +22,43 @@
         ?>
     </div>
 </div>
+
+
+<div id="captioned-gallery">
+	<figure class="slider">
+		<figure>
+			<img src="../vote/upload/p_101.jpg" alt>
+		</figure>
+		<figure>
+			<img src="../vote/upload/p_201.jpg" alt>
+		</figure>
+		<figure>
+			<img src="../vote/upload/p_301.jpg" alt>
+		</figure>
+		<figure>
+			<img src="../vote/upload/p_401.jpg" alt>
+		</figure>
+		<figure>
+			<img src="../vote/upload/p_501.jpg" alt>
+		</figure>
+	</figure>
+</div>
+
+<!-- <div class="slider_container">
+    <div>
+        <img src="../vote/upload/p_401.jpg" alt="pure css3 slider" width="100%" min-width="1000px" margin="0 auto" />
+    </div>
+    <div>
+        <img src="../vote/upload/p_1.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
+    </div>
+    <div>
+        <img src="../vote/upload/p_4.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
+    </div>
+    <div>
+        <img src="../vote/upload/p_5.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
+    </div>
+</div> -->
+
 <nav>
 
     <div>
@@ -32,10 +69,3 @@
     </div>
 
 </nav>
-<!-- <section>
-    <div class="coverflow">
-    <a href="#"><img src="../vote/upload/p_1.jpg"></a>
-    <a href="#"><img src="../vote/upload/p_3.jpg"></a>
-    <a href="#"><img src="../vote/upload/p_4.jpg"></a>
-        </div>
-</section> -->

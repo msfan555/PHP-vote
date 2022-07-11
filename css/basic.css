@@ -6,21 +6,22 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body{
+html,
+body {
     height: 100%;
     margin: 0;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
 }
 
 /* 整個header */
 #header {
-    /* position: relative; */
+    position: relative;
     width: 100%;
-    height: 150px;
+    height: 600px;
     top: 0px;
     z-index: 1030;
 }
@@ -30,7 +31,7 @@ body{
     text-align: right;
     width: 100%;
     min-width: 1000px;
-    height: 35%;
+    height: 10%;
     background-color: #0f2d3c;
     padding: 0 7.5%;
 }
@@ -38,7 +39,7 @@ body{
 #header .upper div {
     display: inline-block;
     align-items: center;
-    margin: 0.9rem 0.2rem;
+    margin: 0.6rem 0.2rem;
     font-size: 16px;
     font-weight: 400;
     color: #ffffff;
@@ -62,17 +63,79 @@ body{
 }
 
 
+/* ========================輪播器======================== */
+
+@import url(https://fonts.googleapis.com/css?family=Istok+Web);
+
+figure.slider { 
+    position: relative; 
+    width: 500%;
+    height: 100%;
+    font-size: 0; animation: 30s slidy infinite; 
+    /* animation 參數設定 */
+    animation-name: slidy;    /*動畫名稱，需與 keyframe 名稱對應*/
+    animation-duration: 20s;    /*動畫持續時間，單位為秒*/
+    animation-delay: 4s;    /*動畫延遲開始時間*/
+    animation-iteration-count: infinite;    /*動畫次數，infinite 為無限次*/ 
+  }
+
+@keyframes slidy {
+/* 0% { left: 0%; }
+10% { left: 0%; }
+20% { left: -100%; }
+30% { left: -100%; }
+40% { left: -200%; }
+50% { left: -200%; }
+60% { left: -300%; }
+70% { left: -300%; }
+80% { left: -400%; }
+90% { left: -400%; }
+100% { left: -500%; } */
+0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+90% { left: -300%; }
+95% { left: -400%; }
+100% { left: -400%; }
+100% { left: -400%; }
+}
+
+div#captioned-gallery { 
+  margin: 0 auto;
+  width: 100%; 
+  height: 380px;
+  overflow: hidden; 
+}
+
+figure.slider figure { 
+  width: 20%; 
+  height: 380px;
+  display: inline-block;  
+  position: inherit; 
+}
+figure.slider img { 
+  width: 100%; 
+  height: 380px; 
+  min-width: 1000px;
+
+}
+
+
 /* header第二層 */
 #header nav {
     width: 100%;
     min-width: 1000px;
-    height: 65%;
+    height: 20%;
     margin: auto;
-    background: #295970;
+    background: #295970cc;
     bottom: 0;
     padding: 0 7.5%;
     text-align: right;
-    position: relative;
+    position: absolute;
 }
 
 #header nav div {
@@ -86,7 +149,7 @@ body{
     color: #ffffff;
     margin: 0.5rem 0;
     text-decoration: none;
-    padding: 0  1.2rem;
+    padding: 0 1.2rem;
 }
 
 #header nav div a:hover {
@@ -95,10 +158,10 @@ body{
 }
 
 #header nav div a:visited {
-color: #ffffff;
+    color: #ffffff;
 }
 
-.bar{
+.bar {
     border-right: 1px solid #f9c78b;
 }
 
@@ -108,7 +171,7 @@ color: #ffffff;
     left: 15%;
     width: 85%;
     min-width: 1000px;
-    margin: auto;
+    margin: 0 auto 1.5rem;
     /* min-height: calc(100vh - 300px - 2.5rem); */
     /* 100vh是瀏覽器高度，寫死高度footer會跟在container後面，超出100vh的內容就會掉到footer下方 */
     flex-grow: 1;
@@ -151,3 +214,5 @@ footer {
 .text-right {
     text-align: right;
 }
+
+/* ============================================== */

@@ -1,20 +1,20 @@
 <?php
 session_start();
 date_default_timezone_set('Asia/Taipei');
-$dsn = "mysql:host=localhost;charset=utf8;dbname=vote";
-$pdo = new PDO($dsn, 'root', '');
+// $dsn = "mysql:host=localhost;charset=utf8;dbname=vote";
+// $pdo = new PDO($dsn, 'root', '');
 
-// $dsn = "mysql:host=localhost;charset=utf8;dbname=s1110206";
-// $pdo = new PDO($dsn, 's1110206', 's1110206');
+$dsn = "mysql:host=localhost;charset=utf8;dbname=s1110206";
+$pdo = new PDO($dsn, 's1110206', 's1110206');
 
 
 function pdo()
 {
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=vote";
-    return new PDO($dsn, 'root', '');
+    // $dsn = "mysql:host=localhost;charset=utf8;dbname=vote";
+    // return new PDO($dsn, 'root', '');
 
-    // $dsn = "mysql:host=localhost;charset=utf8;dbname=s1110206";
-    // $pdo = new PDO($dsn, 's1110206', 's1110206');
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=s1110206";
+    $pdo = new PDO($dsn, 's1110206', 's1110206');
 }
 
 
@@ -32,8 +32,8 @@ function pdo()
 
 function all($table, ...$arg)
 { 
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     //建立共有的基本SQL語法
     $sql = "SELECT * FROM $table ";
@@ -92,8 +92,8 @@ function all($table, ...$arg)
 
 function find($table, $arg)
 {
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     $sql = "SELECT * FROM $table WHERE ";
     if (is_array($arg)) {
@@ -122,8 +122,8 @@ function find($table, $arg)
 
 function del($table, $arg)
 {
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     $sql = "DELETE FROM $table WHERE ";
     if (is_array($arg)) {
@@ -155,8 +155,8 @@ function del($table, $arg)
 
 function math($table, $math, $col, ...$arg)
 {
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     $sql = "SELECT $math(`$col`) FROM $table ";
 
@@ -192,8 +192,8 @@ function  to($url)
 
 function  q($sql)
 {
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -208,8 +208,8 @@ function  q($sql)
 
 function  save($table, $arg)
 {
-    // global $pdo;
-    $pdo = pdo();
+    global $pdo;
+    // $pdo = pdo();
 
     $sql = '';
     if (isset($arg['id'])) {

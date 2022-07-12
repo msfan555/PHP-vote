@@ -2,6 +2,37 @@
 //記錄投票結果
 include_once "base.php";
 
+function  save1($table, $arg)
+{
+    // global $pdo;
+    $pdo = pdo();
+
+    $sql = '';
+    if (isset($arg['id'])) {
+        //update
+
+        foreach ($arg as $key => $value) {
+
+            if ($key != 'id') {
+
+                $tmp[] = "`$key`='$value'";
+            }
+        }
+        //建立更新的sql語法
+        $sql .= "UPDATE $table SET " . implode(" , ", $tmp) . " WHERE `id`='{$arg['id']}'";
+    } else {
+        //insert
+        $cols = implode("`,`", array_keys($arg));
+        $values = implode("','", $arg);
+
+        //建立新增的sql語法
+        $sql = "INSERT INTO $table (`$cols`) VALUES('$values')";
+    }
+
+    echo $sql;
+    // return $pdo->exec($sql);
+}
+
 // echo $subject;
 // exit ();
 
@@ -22,7 +53,7 @@ if (isset($_POST['opt'])) {
                 'subject_id' => $subject['id'],
                 'option_id' => $option['id']
             ];
-            save("logs", $log);
+            save1("logs", $log);
         }
     } else {
 
@@ -37,7 +68,7 @@ if (isset($_POST['opt'])) {
             'subject_id' => $subject['id'],
             'option_id' => $option['id']
         ];
-        save("logs", $log);
+        save1("logs", $log);
     }
 }
 

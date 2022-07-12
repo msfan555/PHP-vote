@@ -32,6 +32,16 @@
 
         .type-name {
             outline: 0;
+            background: #fcfcfc;;
+            width: 100%;
+            border: 0;
+            margin: 0 0 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .add-type {
+            outline: 0;
             background: #f2f2f2;
             width: 100%;
             border: 0;
@@ -81,68 +91,6 @@
             <?php
             include_once "../vote/api/base.php";
 
-            if (isset($_POST['name1[]'])) {
-                foreach($_POST['id1[]'] as $idx => $id){
-                    $editType = $_POST['name1'][$idx];
-                    //$typeId = $_POST['id1'];
-                
-                    //資料庫撈出資料
-                    $sql = "SELECT * FROM `types`  WHERE `name`='$editType'";
-                    $chk = $pdo->query($sql)->fetchAll();
-                    dd($chk);
-                
-                    $sql1 = "UPDATE `types` SET `name`='{$editType}' WHERE  `id`='{$id}'";
-                
-                    if ($chk) {
-                        //判斷輸入的內容是否有重複
-                        //這邊的isset會因為上面有先宣告了$error,所以一定是true
-                        //而$chk如果有撈到值也表示有資料重複,所以這裏應該是直接給值就可以
-                        //if (isset($error)) {
-                        //    $error = "輸入的分類內容重複，請輸入其他分類";
-                        //    echo "<h3 class=error>{$error}</h3>";
-                        //}
-                            $error = "輸入的分類內容重複，請輸入其他分類";
-                            echo "<h3 class=error>{$error}</h3>";
-                        
-                    } else {
-                        $pdo->exec($sql1);
-                    }
-                    exit(); 
-                
-                }
-                }
-
-            // $types = all("types");
-            // if (isset($_POST['name'])) {
-
-            //     $editName = $_POST['name'];
-            //     $editId = $_POST['id'];
-
-            //     echo $editName;
-            //     // echo "<br>";
-            //     echo $editId;
-            //     exit();
-
-            //     //資料庫撈出資料
-            //     $sql = "SELECT * FROM `types`  WHERE `name`='$editName' && `id`='$editId'";
-            //     $chk = $pdo->query($sql2)->fetchAll();
-            //     dd($chk);
-            //     exit();
-
-            //     $error = '';
-
-            //     if ($chk2) {
-            //         //判斷輸入的內容是否有重複
-            //         if (isset($error)) {
-            //             $error = "輸入的分類內容重複，請輸入其他分類";
-            //             echo "<h3 class=error>{$error}</h3>";
-            //         }
-            //     } else {
-            //         $pdo->exec($sql1);
-            //     }
-            // }
-
-
 
             if (isset($_POST['name2'])) {
 
@@ -179,11 +127,12 @@
                 foreach ($types as $type) {
                 ?>
                     <div value=<?= $type['id']; ?>>
-                        <input class='type-name' type='text' name="name1[]" id="name1" value="<?= $type['name']; ?>">
-                        <input type='hidden' name='id1[]' value='<?= $type["id"]; ?>'>
+                        <input class='type-name' type='text' name="name1[<?= $type['name']; ?>]" id="name1" value="<?= $type['name']; ?>"  readonly="readonly">
+                        <input type='hidden' name='id1[<?= $type["id"]; ?>]' value='<?= $type["id"]; ?>'>
                     </div>
-                    <!-- <a class='dele' href='?do=dele_type.php=dele&id=<?php // $type["id"]; ?>'>刪除</a> -->
-                    <?php
+                    <!-- <a class='dele' href='?do=dele_type.php=dele&id=<?php // $type["id"]; 
+                                                                            ?>'>刪除</a> -->
+                <?php
                 }
                 ?>
                 <!-- <input class='edit' type='submit' value='修改'> -->
@@ -192,7 +141,7 @@
 
                 <div>
                     <label for="name2">新增分類</label>
-                    <input class="type-name" type="text" name="name2" id="name2">
+                    <input class="add-type" type="text" name="name2" id="name2">
                 </div>
                 <div>
 

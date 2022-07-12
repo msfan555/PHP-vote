@@ -44,21 +44,6 @@
 	</figure>
 </div>
 
-<!-- <div class="slider_container">
-    <div>
-        <img src="../vote/upload/p_401.jpg" alt="pure css3 slider" width="100%" min-width="1000px" margin="0 auto" />
-    </div>
-    <div>
-        <img src="../vote/upload/p_1.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
-    </div>
-    <div>
-        <img src="../vote/upload/p_4.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
-    </div>
-    <div>
-        <img src="../vote/upload/p_5.jpg" alt="pure css3 slider" width="100%" min-width="1000px"/>
-    </div>
-</div> -->
-
 <nav>
 
     <div>

@@ -16,7 +16,7 @@ $user = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC); //導出資料
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>投票管理中心</title>
-    <link rel="stylesheet" href="./css//basic.css">
+    <link rel="stylesheet" href="./css/basic.css">
     <link rel="stylesheet" href="./css/admin.css">
 </head>
 

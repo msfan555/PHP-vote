@@ -22,7 +22,7 @@ $opts = all("options", ['subject_id' => $_GET['id']]);
         .vote-box {
             width: 360px;
             padding: 2% 0 0;
-            margin: auto;
+            margin: 1.5rem auto 6rem;
         }
 
         h2 {

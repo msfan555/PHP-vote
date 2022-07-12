@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 07 月 10 日 13:31
+-- 產生時間： 2022 年 07 月 12 日 16:21
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 8.1.6
 
@@ -84,7 +84,8 @@ INSERT INTO `logs` (`id`, `user_id`, `subject_id`, `option_id`, `vote_time`) VAL
 (29, 11, 1, 1, '2022-07-10 09:24:06'),
 (30, 11, 1, 1, '2022-07-10 09:26:00'),
 (31, 11, 14, 43, '2022-07-10 11:17:55'),
-(32, 11, 14, 44, '2022-07-10 11:17:55');
+(32, 11, 14, 44, '2022-07-10 11:17:55'),
+(33, 11, 11, 36, '2022-07-10 12:55:55');
 
 -- --------------------------------------------------------
 
@@ -104,9 +105,9 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
-(1, '貓貓最高', 1, 20),
-(2, '狗狗最可愛', 1, 0),
-(3, '小孩子才做選擇', 1, 2),
+(1, '貓貓最高', 1, 24),
+(2, '狗狗最可愛', 1, 2),
+(3, '小孩子才做選擇', 1, 10),
 (4, '動物先不要', 1, 0),
 (5, '逛市集買東西吃東西', 2, 0),
 (6, '百岳爬起來', 2, 2),
@@ -117,7 +118,7 @@ INSERT INTO `options` (`id`, `option`, `subject_id`, `total`) VALUES
 (11, '朝聖之路走到腳爛掉', 3, 1),
 (12, '做夢比較快到', 3, 2),
 (13, '美咖耍美', 2, 0),
-(36, 'BL', 11, 3),
+(36, 'BL', 11, 4),
 (37, '百合', 11, 3),
 (41, '殺鬼主題的動畫', 13, 1),
 (42, '殭屍主題的展覽', 13, 0),
@@ -148,12 +149,12 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subject`, `type_id`, `multiple`, `multi_limit`, `start`, `end`, `total`) VALUES
-(1, '貓派vs狗派', 5, 0, 1, '2022-06-30', '2022-07-10', 22),
-(2, '週末要幹嘛呀？', 6, 0, 1, '2022-06-30', '2022-07-10', 3),
+(1, '貓派vs狗派', 5, 0, 1, '2022-07-12', '2022-07-21', 36),
+(2, '週末要幹嘛呀？', 6, 0, 1, '2022-07-05', '2022-07-14', 3),
 (3, '解封要去哪裡玩？', 6, 0, 1, '2022-06-30', '2022-07-05', 6),
-(11, '嘎嘎嗚拉拉', 1, 1, 1, '2022-07-02', '2022-07-12', 4),
+(11, '嘎嘎嗚拉拉', 1, 1, 1, '2022-07-04', '2022-07-14', 5),
 (13, '哪一個比較會教壞小孩？', 7, 0, 1, '2022-07-03', '2022-07-13', 1),
-(14, '最鍾意的料理', 6, 1, 1, '2022-07-03', '2022-07-13', 2);
+(14, '最鍾意的料理', 6, 1, 1, '2022-07-05', '2022-07-15', 2);
 
 -- --------------------------------------------------------
 
@@ -174,8 +175,7 @@ INSERT INTO `types` (`id`, `name`) VALUES
 (5, '動物'),
 (6, '生活'),
 (7, '究極の選擇'),
-(8, '444'),
-(74, 'haha');
+(79, '科技');
 
 -- --------------------------------------------------------
 
@@ -200,7 +200,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `acc`, `pw`, `name`, `birthday`, `gender`, `education`, `email`) VALUES
 (1, 'admin', 'admin', 'admin', '2022-02-21', 0, '4', 'ggg@ggg.com'),
-(11, 'luis', '202cb962ac59075b964b07152d234b70', 'luisk', '2022-07-04', 1, '3', 'fff@fff.com'),
+(11, 'fan', '202cb962ac59075b964b07152d234b70', 'fan', '2022-07-04', 1, '3', 'fff@fff.com'),
 (12, 'fanfan', '202cb962ac59075b964b07152d234b70', 'fan', '2022-07-04', 0, '0', 'fff@fff.com'),
 (13, 'klose', '202cb962ac59075b964b07152d234b70', 'klose', '2022-07-05', 0, '3', 'fff@fff.com'),
 (14, 'kk', '202cb962ac59075b964b07152d234b70', 'kkk', '2022-07-07', 1, '3', 'fff@fff.com');
@@ -259,7 +259,7 @@ ALTER TABLE `admins`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=34;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
@@ -277,7 +277,7 @@ ALTER TABLE `subjects`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=77;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '序號', AUTO_INCREMENT=82;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
